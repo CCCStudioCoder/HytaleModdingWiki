@@ -1,3 +1,4 @@
+import { BookIcon, BookOpen } from 'lucide-react';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 
 export function baseOptions(): BaseLayoutProps {
@@ -5,5 +6,19 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       title: 'Hytale Modding',
     },
+    links: [
+      {
+        icon: <BookIcon />,
+        text: 'Documentation',
+        url: '/docs',
+        active: 'nested-url',
+      },
+      {
+        icon: <BookOpen />,
+        text: 'Guides',
+        url: '/guides',
+        active: 'nested-url',
+      },
+    ]
   };
 }
