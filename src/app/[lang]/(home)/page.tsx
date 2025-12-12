@@ -1,5 +1,5 @@
 "use client";
-import { ExternalLinkIcon, BookIcon } from "lucide-react";
+import { ExternalLinkIcon, BookIcon, Link, Anchor } from "lucide-react";
 import { FlipWords } from "@/components/ui/flip-words";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { Button } from "@/components/ui/button";
@@ -12,15 +12,16 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import Image, { StaticImageData } from "next/image";
-import { DiscordButton } from "./discord-button";
 import { useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import { localizeHref } from "@/lib/locale";
 
 import WulfrumProsthesis from "./(showcaseImages)/wulfrum_prosthesis.png";
 import DragonFlyMount from "./(showcaseImages)/dragonfly_mount.gif";
 import Melodium from "./(showcaseImages)/Melodium.gif";
 import GaleWivern from "./(showcaseImages)/gale_wivern.gif";
 import WulfrumArmor from "./(showcaseImages)/Wulfrum_Armor.gif";
+import { DiscordButton } from "./discord-button";
 
 
 interface CarouselItem {
@@ -30,7 +31,7 @@ interface CarouselItem {
   link: string;
 }
 
-export default function HomePage() {
+export default function HomePage({ params }: { params: { lang?: string } }) {
   const [isMobile, setIsMobile] = useState(false);
   const carouselItems: CarouselItem[] = [
     {
@@ -91,8 +92,10 @@ export default function HomePage() {
             kickstart your modding journey.
           </h2>
           <div className="flex flex-wrap gap-4">
-            <Button>
-              <BookIcon /> Docs
+            <Button asChild>
+              <a href={localizeHref("/docs", params.lang?.toString())}>
+                <BookIcon /> Docs
+              </a>
             </Button>
             <DiscordButton />
           </div>
