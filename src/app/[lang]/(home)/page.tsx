@@ -42,7 +42,7 @@ export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const carouselItems: CarouselItem[] = [
     {
-      title: "HyEnergy: Electric Motor",
+      title: "Hynergy: Electric Motor",
       author: "by seyager",
       image: ElectricMotor,
       link: "https://x.com/SeyagerYT"
