@@ -10,7 +10,7 @@ const translations = Object.fromEntries(
     return [
       lang,
       {
-        displayName: messages.displayName ?? englishTranslations.displayName,
+        displayName: messages.displayName ?? lang,
         ...(messages.nav?.search && {
           search: messages.nav.search ?? englishTranslations.nav.search,
         }),
