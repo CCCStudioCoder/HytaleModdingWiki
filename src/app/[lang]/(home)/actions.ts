@@ -1,5 +1,7 @@
 "use server";
 
+import { Sponsor } from "@/lib/types/sponsor";
+
 export async function getDiscordStats() {
   "use cache";
   try {
@@ -30,7 +32,7 @@ export async function getDiscordStats() {
   }
 }
 
-export async function getSponsors() {
+export async function getSponsors(): Promise<Sponsor[]> {
   "use cache";
   try {
     const response = await fetch(

@@ -1,10 +1,10 @@
-::view-transition-group(.docs-transition) {
+::view-transition-group(.blur-scale-transition) {
 }
-::view-transition-old(.docs-transition) {
+::view-transition-old(.blur-scale-transition) {
   animation: blur-scale-fade-out 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   animation-fill-mode: forwards;
 }
-::view-transition-new(.docs-transition) {
+::view-transition-new(.blur-scale-transition) {
   animation: blur-scale-fade-in 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   animation-fill-mode: forwards;
 }

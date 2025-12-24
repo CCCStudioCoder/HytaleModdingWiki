@@ -15,12 +15,9 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { localizeHref } from "../../../lib/locale";
 import { useParams } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
+import { Sponsor } from "@/lib/types/sponsor";
 
-interface Sponsor {
-  name: string;
-  image: string;
-  profile?: string;
-}
+
 
 export function SponsorButton() {
   const messages = useMessages();
@@ -41,8 +38,8 @@ export function SponsorButton() {
             displayedSponsors.length > 0
               ? sponsorsList.findIndex(
                   (s) =>
-                    s.name ===
-                    displayedSponsors[displayedSponsors.length - 1].name,
+                    s.MemberId ===
+                    displayedSponsors[displayedSponsors.length - 1].MemberId,
                 )
               : -1;
 
@@ -70,6 +67,8 @@ export function SponsorButton() {
         setIsError(true);
       })
       .then((data) => {
+        if (!data || killSwitch) return;
+
         data = data.sort(() => Math.random() - 0.5);
         setSponsorsList(data);
         cycleSponsors(data);

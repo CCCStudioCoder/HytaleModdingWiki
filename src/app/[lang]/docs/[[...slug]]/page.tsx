@@ -28,11 +28,11 @@ export default async function Page(
   const authors = page.data.authors;
 
   return (
-    <ViewTransition enter="docs-transition" exit="docs-transition">
+    <ViewTransition enter="blur-scale-transition" exit="blur-scale-transition">
       <DocsPage
         toc={page.data.toc}
         tableOfContent={{
-          style: 'clerk'
+          style: "clerk",
         }}
         full={page.data.full}
         editOnGithub={{
@@ -52,10 +52,10 @@ export default async function Page(
             })}
           />
         </DocsBody>
-        
+
         {/* Authors section */}
         {authors && authors.length > 0 && (
-          <div className="mt-8 text-sm text-muted-foreground">
+          <div className="text-muted-foreground mt-8 text-sm">
             {messages.misc.credit}{" "}
             {authors.map((author, index) => (
               <span key={index}>
@@ -76,10 +76,8 @@ export default async function Page(
             ))}
           </div>
         )}
-        
-        {lastModified && (
-          <PageLastUpdate date={lastModified} />
-        )}
+
+        {lastModified && <PageLastUpdate date={lastModified} />}
       </DocsPage>
     </ViewTransition>
   );

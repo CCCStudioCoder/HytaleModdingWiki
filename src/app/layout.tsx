@@ -1,5 +1,6 @@
 import { Geist } from "next/font/google";
 import "./global.css";
+import "./transitions.css";
 
 const geist = Geist({
   subsets: ["latin"],
