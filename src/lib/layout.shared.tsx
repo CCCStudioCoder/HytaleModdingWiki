@@ -13,6 +13,7 @@ export function baseOptions(
     i18n,
     nav: {
       title: messages.nav.title,
+      url: `/${locale}/`,
     },
   };
 
