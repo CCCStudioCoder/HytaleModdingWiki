@@ -96,27 +96,17 @@ bun run dev
 
 6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-### Project Structure
+BEFORE you start to work on your addition, you need to switch to the `dev` branch using:
+```bash
+git checkout dev
+```
 
-```
-site/
-├── content/docs/          # MDX documentation files
-│   ├── index.mdx
-│   ├── quick-start.mdx
-│   └── what-we-know-so-far/
-├── src/
-│   ├── app/              # Next.js app routes
-│   ├── components/       # React components
-│   └── lib/              # Utility functions
-├── public/               # Static assets
-└── README.md
-```
 
 ## Documentation Guidelines
 
 ### File Structure
 
-- Place documentation files in `content/docs/`
+- Place documentation files in `content/docs/en`
 - Use kebab-case for file names: `server-first-dev.mdx`
 - Organize related content in subdirectories
 - Update `meta.json` files for navigation
@@ -140,7 +130,7 @@ Your content here...
 
 1. **Accuracy First**
    - Verify information against official Hytale sources
-   - Link to [official blog posts](https://hytale.com/news/2025/11/hytale-modding-strategy-and-status) when relevant
+   - Link to official blog posts when relevant
    - Clearly mark speculation or unconfirmed information
 
 2. **Clear and Concise**
@@ -175,7 +165,7 @@ git checkout -b fix/your-bug-fix
 2. Make your changes and commit:
 ```bash
 git add .
-git commit -m "Add clear, descriptive commit message"
+git commit -m "feat: Add clear, descriptive commit message that follow conventional commits"
 ```
 
 3. Push to your fork:
@@ -187,28 +177,11 @@ git push origin feature/your-feature-name
 
 ### Pull Request Guidelines
 
-- **Title**: Clear and descriptive (e.g., "Add Java plugin tutorial" or "Fix typo in quick-start guide")
-- **Description**: Explain what changes you made and why
-- **Link Issues**: Reference related issues with `Fixes #123` or `Relates to #456`
-- **Screenshots**: Include before/after screenshots for visual changes
-- **Testing**: Confirm the site builds and renders correctly
+You must include a GitHub issue number while making a PR, attach your GitHub issue by prefixing your PR title with `GH-<issue number>` 
 
 ### Commit Messages
 
-Follow these conventions:
-- Use present tense: "Add feature" not "Added feature"
-- Use imperative mood: "Fix bug" not "Fixes bug"
-- Keep first line under 72 characters
-- Add detailed description if needed
-
-Examples:
-```
-Add server plugin development guide
-
-Fix broken link in quick-start documentation
-
-Update data assets section with JSON examples
-```
+We use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), and you are supposed to use those commits while contributing to us. **Your PR will not be accepted if you do not use conventional commits**
 
 ## Style Guide
 
@@ -251,28 +224,21 @@ public class ExamplePlugin {
 
 ### Getting Help
 
-- **Discord**: [Join our Discord](https://discord.gg/54WX832HBM) for real-time help
+- **Discord**: [Join our Discord](https://discord.gg/hytalemodding) for help while writing guides, remember, we are here to help you if you want to contribute!
 - **GitHub Discussions**: Ask questions and share ideas
 - **Issues**: Report bugs and request features
-
-### Staying Updated
-
-- Watch the repository for notifications
-- Follow [Hytale's official blog](https://hytale.com/news)
-- Join community discussions on Discord and Reddit
 
 ### Recognition
 
 Contributors are recognized in several ways:
 - Listed in the repository's contributors
-- Mentioned in release notes for significant contributions
 - Building a portfolio of documentation work
+- If you wrote a guide, it'll show that you are the author at the end of the page.
 
 ## Questions?
 
 If you have questions not covered in this guide:
-- Open a GitHub issue with the `question` label
-- Ask in the Discord server
-- Reach out to project maintainers
+- Ask in the [Discord server](https://discord.gg/hytalemodding)
+- Reach out to us via email at `hello@hytalemodding.dev`
 
 Thank you for contributing to Hytale Modding Documentation! Your efforts help the entire community learn and grow together.
