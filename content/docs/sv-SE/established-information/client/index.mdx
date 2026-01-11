@@ -1,0 +1,69 @@
+---
+title: Hytale Klienten
+description: Information angående Hytale klienten
+---
+
+<Callout>
+  Klienten är skriv i C#, sammanställd till maskinkod innan distribution och är inte moddbar. Enspelare körs på en lokal server Alla moddar måste gå igenom server APIn.
+</Callout>
+
+# Inga klientsidade mods.
+
+Det finns ingen moddning för klientsidan
+
+> Vi har inte för avsikt att stödja några klientmoddar - Slikey
+
+## Varför?
+
+1. Inget behov av att ladda ner externt.
+   * Hytale vill "undvika ett fragmenterat ekosystem där varje server kräver en annan modded klient".
+
+2. Klientens säkerhet.
+   * Köra '.jar' filer från tredjepartssidor på klienten kan enkelt införa skadlig kod.
+   > [Vi vill inte utsätta spelarna] för de säkerhetsrisker som finns på någon annan moddplattform.
+
+3. Klientens stabilitet.
+   * Hytale kan flytta till andra plattformar där klientmoddning är omöjligt, så de låser ner det tidigt för att ställa in rätt riktning tidigt.
+   > Vi tror att resultatet folk får från andra block spel med anvädning av klient mods kan enkelt uppnås med våran serversidade moddning I andra blockspel måste du installera ett klientmod bara för att få nya blocks, NPC:er, UI, etc. Hytale gör allt av det bara genom att lyssna på servern. Servern kommer i princip att "modda" klienten tillfälligt på ett riktigt säkert sätt att lägga till och ändra din spelupplevelse. Du kan göra din helt egna version av Orbis utan att använda några av våra modeller, musik, världsgeneration, strid eller något Du har kontroll och du kan slita ut allt utan att någonsin röra klienten Tänk på hur Roblox fungerar.. Du ändrar aldrig din app. Du klickar bara på en upplevelse du vill ha och du får allt du behöver utan att modda din installation själv. - Slikey
+
+## Klient mods behövs inte
+
+De typiska användningsfallen för klientmoddar är:
+
+* Kosmetiska förändringar (resurspaket, skuggor, kappor, etc.): serverns egna kosmetik, inte klienten.
+* Prestanda: basspelet kommer att erbjuda nödvändig prestandakontroll.
+* Tillgänglighet: basspelet kommer att vara tillgängligt på egen hand.
+* Användargränssnitt: Serverns egna UI, inte klientens.
+
+### Förutsägelse av klientsida
+
+Hytale använder datadriven klientsidad förutsägelse för att mildra eftersläpning, eftersom alla interaktioner äger rum på servern och vidarebefordras tillbaka till klienten. Detta är redan närvarande för vissa system men för närvarande begränsad, men ytterligare integration är planerad för framtiden. Det är också planerat att arbeta med det visuella skriptsystemet i framtiden för ytterligare optimering.
+
+## Klientsidat utförande
+
+Teamet utforskar att tillåta utförande av kod av klienten (vilket skiljer sig från att modda klienten; detta är kod skickat från servern), detta är dock inte garanterat.
+
+# Modeller
+
+Klient- och tillgångspipeline accepterar `.blockymodel`, ett anpassat format för Hytale. Det officiella blockbench pluginet kommer tillåta dig att exportera till detta format
+
+# Klientens tekniska detaljer
+
+Det kommer bara vara en aktuell, stöttad version av klienten.
+
+> Java version kommer hållas uppdaterad av oss och just nu är vi på den senaste versionen (Java 25)
+> Spelversionen kommer inte vara valbar för att undvika versionsjunglen vi upplevde på vårat hypixel servernätverk Vi vill helt enkelt säkerställa att flerspelarnätverk kan lita på att spelare har den senaste versionen av spelet och inte behöva stöjda 15+ versioner av klienten. - Slikey
+
+Klienten är multitrådad.
+
+## GUI
+
+GUI:n är byggd från C# bindningar med hjälp av Noesis.
+
+## Byggsystem
+
+Hytale använder NativeAOT ("Ahead of Time") för att bygga klienten, vilket sammanställer C# till maskinkod för distribution. Detta betyder att, utan omvänd-engineering av maskinkoden, mods behöver gå genom server API:n.
+
+# Annan information
+
+Klienten har sin egen versionshantering och protokoll för att interagera med servrar.

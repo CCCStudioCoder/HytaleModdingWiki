@@ -262,7 +262,7 @@ public static void main(String[] args) {
   public static void test(String a, int b) { }     // Types différents
   public static void test(int a, String b) { }     // Ordre différent
 
-  // Faux - Seul le type de retour est différent
+  // Incorrect - Seul le type de retour est différent
   public static int test(int a) { }
   ```
 </Callout>
@@ -380,7 +380,7 @@ public static String obtenirStatutDeVie(int vie, int vieMax) {
 ## Erreurs courantes
 
 ```java
-// Erreur - Oubli de l'instruction return
+// Incorrect - Oubli de l'instruction return
 public static int obtenirValeur() {
     int x = 10;
     // Oubli de retourner !
@@ -392,7 +392,7 @@ public static int obtenirValeur() {
     return x;
 }
 
-// Erreur - Mauvais type de retour
+// Incorrect - Mauvais type de retour
 public static int obtenirTexte() {
     return "Bonjour";  // Erreur ! Doit retourner un int, pas un String
 }
@@ -402,7 +402,7 @@ public static String obtenirTexte() {
     return "Bonjour";
 }
 
-// Erreur - N'appelle pas la méthode
+// Incorrect - N'appelle pas la méthode
 public static void main(String[] args) {
     saluer;  // Erreur ! Oubli de ()
 }

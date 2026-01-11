@@ -1,128 +1,128 @@
 ---
-title: 03 - Control Flow If Statements
-description: Learn how to control the flow of your Java programs using if statements.
+title: 03 - Контроль потоку за допомогою операторів if
+description: Дізнайтеся, як контролювати потік ваших Java програм за допомогою операторів if.
 ---
 
-Programs need to make decisions. If statements let your code choose different paths based on conditions.
+Програми повинні приймати рішення. Оператори if дозволяють вашому коду вибирати різні шляхи на основі умов.
 
-## Basic If Statement
+## Базовий оператор if
 
-The simplest form checks one condition;
+Найпростіша форма перевіряє одну умову;
 
 ```java
 int health = 20;
 
 if (health > 10) {
-    System.out.println("You are healthy!");
+    System.out.println("Ви здорові!");
 }
 ```
 
-### Structure
+### Структура
 
 ```java
-if (condition) {
-    // code to execute if condition is true
+if (умова) {
+    // код для виконання, якщо умова є істинною
 }
 ```
 
-## If-Else Statements
+## Оператори if-else
 
-Choose between two paths:
+Вибирає один із двох шляхів:
 
 ```java
 int health = 5;
 
 if (health > 10) {
-    System.out.println("You are healthy!");
+    System.out.println("Ви здорові!");
 } else {
-    System.out.println("You need healing!");
+    System.out.println("Вам потрібне лікування!");
 }
 ```
 
-## If-Else Else-If Chain
+## Послідовність if-else else-if
 
-Check multiple conditions in sequence:
+Перевіряє кілька умов послідовно:
 
 ```java
 
 int health = 7;
 
 if (health > 15) {
-    System.out.println("You are in great shape!");
+    System.out.println("Ви в чудовій формі!");
 } else if (health > 5) {
-    System.out.println("You are okay.");
+    System.out.println("Ви в порядку.");
 } else {
-    System.out.println("You need healing!");
+    System.out.println("Вам потрібне лікування!");
 }
 ```
 
-## Nested If Statements
+## Вкладені оператори if
 
-You can place if statements inside other if statements:
+Ви можете розміщувати оператори if всередині інших операторів if:
 
 ```java
 int health = 12;
 
 if (health > 10) {
     if (health > 15) {
-        System.out.println("You are in great shape!");
+        System.out.println("Ви в чудовій формі!");
     } else {
-        System.out.println("You are healthy!");
+        System.out.println("Ви здорові!");
     }
 } else {
-    System.out.println("You need healing!");
+    System.out.println("Вам потрібне лікування!");
 }
 ```
 
-## Compound Conditions
+## Складні умови
 
-You can combine multiple conditions using logical operators:
+Ви можете поєднувати кілька умов за допомогою логічних операторів:
 
 ```java
 
-// AND - both must be true
+// AND — обидві умови повинні бути істинними
 int health = 12;
 boolean hasPotion = true;
 
 if (health > 10 && hasPotion) {
-    System.out.println("You are healthy and have a potion!");
+    System.out.println("Ви здорові і маєте зілля!");
 } else if (health > 10) {
-    System.out.println("You are healthy but need a potion!");
+    System.out.println("Ви здорові, але вам потрібне зілля!");
 } else {
-    System.out.println("You need healing!");
+    System.out.println("Вам потрібне лікування!");
 }
 
-// OR - at least one must be true
+// OR - принаймні одне з них має бути істинним
 
 int health = 8;
 boolean hasPotion = false;
 if (health > 10 || hasPotion) {
-    System.out.println("You are either healthy or have a potion!");
+    System.out.println("Ви або здорові, або маєте зілля!");
 } else {
-    System.out.println("You need healing and a potion!");
+    System.out.println("Вам потрібне лікування і зілля!");
 }
 
-// NOT - reverses the condition
+// NOT - інвертує умову
 
 int health = 8;
 if (!(health > 10)) {
-    System.out.println("You need healing!");
+    System.out.println("Вам потрібне лікування!");
 } else {
-    System.out.println("You are healthy!");
+    System.out.println("Ви здорові!");
 }
 ```
 
-## Ternary Operator
+## Тризначний оператор
 
-A compact way to assign values:
+Компактний спосіб присвоєння значень:
 
 ```java
 int health = 12;
-String status = (health > 10) ? "Healthy" : "Needs Healing";
+String status = (health > 10) ? "Здоровий" : "Потрібне лікування";
 ```
 
-### Syntax
+### Синтаксис
 
 ```java
-variable = (condition) ? valueIfTrue : valueIfFalse;
+змінна = (умова) ? значенняЯкщоІстина : значенняЯкщоБрехня;
 ```

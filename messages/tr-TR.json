@@ -7,27 +7,27 @@
     "search": "Ara"
   },
   "home": {
-    "title": "Hytale Modlama için #1 kaynak {flipwords} ",
+    "title": "Hytale Modlama için 1 Numaralı Kaynak {flipwords}",
     "flipwords": [
       "Kılavuzlar",
-      "Belgeleme",
+      "Dokümantasyon",
       "Araçlar",
       "Öğreticiler"
     ],
-    "description": "The number one community resource for modding Hytale, featuring comprehensive guides, detailed documentation, and essential tools to kickstart your modding journey.",
+    "description": "Hytale modlama serüveninize hızlı bir başlangıç yapmanız için kapsamlı rehberler, detaylı dokümantasyon ve gerekli tüm araçları sunan; Hytale modlamanın 1 numaralı topluluk kaynağı",
     "documentation": "Belgeler",
     "forum": "Forum",
-    "discord": "Topluluğa Katıl!",
-    "memberCount": "{count} Üyeler"
+    "discord": "Topluluğa katıl!",
+    "memberCount": "{count} Üye"
   },
   "sponsors": {
-    "title": "Support Us",
-    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
-    "ourSponsors": "Our Sponsors"
+    "title": "Bizi destekleyin",
+    "description": "HytaleModding açık kaynaklı bir topluluk projesidir ve topluluğu yönetmek; bu web sitesini barındırmak gibi hizmetler, sunucular ve altyapı masraflarını karşılamayı da içerir. Projeye destek olmak isterseniz, sponsor olmayı düşünebilirsiniz! Fonların topluluğu desteklemek amacıyla nasıl kullanıldığını görebilmeniz için OpenCollective kullanıyoruz.",
+    "ourSponsors": "Sponsorlarımız"
   },
   "misc": {
     "loading": "Yükleniyor...",
-    "failedToLoad": "Failed to load.",
+    "failedToLoad": "Yüklenemedi.",
     "gitInfoUnavailable": "Git bilgisi bulunamadı",
     "credit": "Yazan",
     "supportUs": "Bizi Destekle"

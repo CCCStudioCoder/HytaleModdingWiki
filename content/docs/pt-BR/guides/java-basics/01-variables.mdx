@@ -9,11 +9,11 @@ Variáveis são contêineres que armazenam dados em seu programa. Pense nelas co
 
 Uma variável tem três componentes fundamentais:
 
-1. **Tipo**: Que tipo de dados ele contém (por exemplo, inteiro, texto, booleano)
+1. **Tipo**: ela pode ter vários tipos de dados, como `integer`, `string`, `boolean`;
 2. **Nome**: O rótulo que você usa para se referir à variável
 3. **Valor**: Os dados que ela contém
 
-## Declarar/Criar Variáveis
+## Declarar/Criar variáveis
 
 Em Java, você deve declarar uma variável antes de usá-la, como se você precisasse de uma caixa antes de colocar algo nela. A sintaxe é:
 
@@ -24,7 +24,7 @@ idade = 18;
 Idade int = 18; // Declaração e atribuição em uma linha
 ```
 
-## Tipos de Dados Primitivos
+## Tipos de dados primitivos
 
 Você pode se perguntar o que significa "int". É um tipo de dado primitivo em Java. Java tem 8 tipos de dados primitivos. Aqui estão os mais importantes:
 
@@ -36,22 +36,22 @@ Você pode se perguntar o que significa "int". É um tipo de dado primitivo em J
 | char          | Caractere único                 | `char grade = 'A';`        |
 | String        | Sequência de caracteres (texto) | `String name = "Hytale";`  |
 
-## Conversão de Tipos
+## Conversão de tipos
 
 Às vezes você pode não querer que uma variável permaneça do mesmo tipo. Você pode converter entre tipos:
 
 ### Automático
 
 ```java
-int numero = 10;
-double numeroDecimal = (double) numero; // 10.0 — funciona automaticamente
+int num = 10;
+double decimalNum = num; // 10.0 — funciona automaticamente
 ```
 
 ### Manual (Casting)
 
 ```java
 double decimalNum = 9.78;
-int num = (int) decimalNum; // 9 - decimais são descartados
+int num = (int) decimalNum; // 9 — Decimais são descartados
 ```
 
 ## Constantes
@@ -62,15 +62,15 @@ Se você quer uma variável que não deve mudar, use a palavra-chave `final`:
 final double PI = 3.14159;
 ```
 
-**Convenção**: As constantes usam MAIUSCULAS_COM_UNDERLINE.
+**Convenção**: as constantes usam TODAS_AS_MAIÚSCULAS_COM_UNDERSCORE.
 
 ## Práticar
 
 É melhor praticar o que você acabou de aprender - não olhe acima agora e tente fazer isso você mesmo. Se você ficar preso, leia acima novamente!
 
-1. Declare uma variável inteira chamada `vidas` e defina-a como 3.
-2. Declare uma variável double chamada `gravidade` e defina-a como 9.81.
-3. Declare uma variável booleana chamada `isGameOver` e defini-la como falsa.
+1. Declare uma variável como `integer`, dê o nome `lives` a ela e a defina para 3;
+2. Declare uma variável como `double` chamada `gravity` e a defina para 9.81;
+3. Declare uma variável `boolean` chamada `isGameOver` e a defina como `false`;
 4. Converta a variável `vidas` em uma double e armazene-a em uma nova variável chamada `vidasEmDouble`.
 5. Declarar uma constante chamada `NIVEL_MAXIMO` e definí-la como 100.
 

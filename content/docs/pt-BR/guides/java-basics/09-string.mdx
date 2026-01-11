@@ -1,13 +1,13 @@
 ---
-title: 09 — Trabalhando com Cadeias
+title: 09 — Trabalhando com strings
 description: Domine operações de manipulação de texto e string em Java.
 ---
 
-Strings são um dos tipos mais comumente usados em Java. São essenciais para lidar com nomes de jogadores, mensagens de bate-papo, descrições de itens e com tudo o que você vê.
+As strings são um dos tipos mais comumente usados em Java. São essenciais para lidar com nomes de jogadores, mensagens de chat, descrições de itens e com tudo o que você vê.
 
 ## Noções básicas de string
 
-Strings são objetos que armazenam texto:
+As strings são objetos que armazenam texto:
 
 ```java
 String name = "Simon";
@@ -16,11 +16,11 @@ String empty = "";
 ```
 
 <Callout type="warning" title="Strings são imutáveis">
-  Uma vez criada, uma String **não pode ser alterada**. Métodos que parecem modificar uma string realmente criam uma nova!
+  Uma vez criada, uma string **não pode ser alterada**. Métodos que parecem modificar uma string realmente criam uma nova!
 
   ```java
   String text = "Olá";
-  text.toUpperCase();           // Cria "OLÁ" mas não o salva
+  text.toUpperCase();           // Cria "OLÁ", mas não o salva
   System.out.println(text);     // Ainda "Olá"
 
   String upper = text.toUpperCase();  // ✓ Salva o resultado
@@ -28,7 +28,7 @@ String empty = "";
   ```
 </Callout>
 
-## Métodos de String
+## Métodos de string
 
 ### Comprimento
 
@@ -38,15 +38,15 @@ int length = name.length();
 System.out.println(length);  // 5
 ```
 
-### Reverter uma Cadeia
+### Reverter uma string
 
 ```java
-String texto = "Olá, Mundo";
-String maiusculo = texto.toUpperCase();  // "OLÁ, MUNDO"
-String minusculo = texto.toLowerCase();  // "olá mundo"
+String text = "Olá, Mundo";
+String upper = text.toUpperCase();  // "OLÁ, MUNDO"
+String lower = text.toLowerCase();  // "olá, mundo"
 ```
 
-### Verificação dos conteúdos
+### Verificando conteúdos
 
 ```java
 String message = "Bem-vindo(a) ao Hytale";
@@ -70,7 +70,7 @@ String sub1 = text.substring(0, 5);   // "OIá"
 String sub2 = text.substring(6);      // "Mundo"
 ```
 
-<Callout type="info" title="Índices de Substring">
+<Callout type="info" title="Índices de substring">
   `substring(start, end)` inclue `start`, mas não `end`:
 
   ```java
@@ -102,16 +102,16 @@ String clean = messy.trim();
 System.out.println(clean);  // "Olá, Mundo" (sem espaços no final)
 ```
 
-### Dividindo cadeias
+### Dividindo strings
 
 ```java
-String command = "Dar jogador espada 5";
+String command = "Dar ao jogador uma espada 5";
 String[] parts = command.split(" ");
 
 System.out.println(parts[0]);  // "dar"
-System.out.println(parts[1]);  // "jogador"
-System.out.println(parts[2]);  // "espada"
-System.out.println(parts[3]);  // "5"
+System.out.println(parts[1]);  // "ao"
+System.out.println(parts[2]);  // "jogador"
+System.out.println(parts[3]);  // "uma"
 ```
 
 ## Comparação de strings
@@ -147,9 +147,9 @@ String a = "Maçã";
 String b = "Banana";
 
 int result = a.compareTo(b);
-// resultado: < 0 se "a" vier antes de "b"
-// resultado: == 0 se "a" for igual a "b"
-// resultado: > 0 se "a" vier depois de "b"
+// result < 0 se "a" vier antes de "b"
+// result == 0 se "a" for igual a "b"
+// result > 0 se "a" vier depois de "b"
 
 if (a.compareTo(b) < 0) {
     System.out.println(a + " vem antes de " + b);
@@ -181,11 +181,11 @@ Para muitas concatenações, use o `StringBuilder`:
 
 ```java
 StringBuilder builder = new StringBuilder();
-builder.append("Player: ");
+builder.append("Jogador: ");
 builder.append("Alice");
-builder.append(", Level: ");
+builder.append(", Nível: ");
 builder.append(10);
-builder.append(", Health: ");
+builder.append(", Vida: ");
 builder.append(100);
 
 String result = builder.toString();
@@ -194,7 +194,7 @@ System.out.println(result);
 ```
 
 <Callout type="info" title="Por que StringBuilder?">
-  Concatenação regular cria muitas strings temporárias:
+  A concatenação regular cria muitas strings temporárias:
 
   ```java
   // Ineficiente - Cria muitas strings temporárias
@@ -229,10 +229,10 @@ public class CommandParser {
         String item = parts[2];                     // "diamond_sword"
         int amount = Integer.parseInt(parts[3]);    // 1
         
-        System.out.println("Action: " + action);
-        System.out.println("Player: " + player);
+        System.out.println("Ação: " + action);
+        System.out.println("Jogador: " + player);
         System.out.println("Item: " + item);
-        System.out.println("Amount: " + amount);
+        System.out.println("Quantidade: " + amount);
     }
     
     public static void main(String[] args) {
@@ -241,7 +241,7 @@ public class CommandParser {
 }
 ```
 
-### Formatar Nome de Exibição do Jogador
+### Formatar nome de exibição do jogador
 
 ```java
 public class PlayerFormatter {
@@ -268,7 +268,7 @@ public class PlayerFormatter {
 }
 ```
 
-### Validar Username
+### Validar `username`
 
 ```java
 public class UsernameValidator {

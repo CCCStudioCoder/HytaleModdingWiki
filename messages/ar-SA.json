@@ -1,5 +1,5 @@
 {
-  "displayName": "العربية",
+  "displayName": "الإنجليزية",
   "nav": {
     "title": "صناعة مودات هايتيل",
     "documentation": "دليل التوثيق",
@@ -12,25 +12,25 @@
       "الشروحات",
       "دليل التوثيق",
       "أدوات",
-      "الشروحات"
+      "البرنامج التعليمي"
     ],
     "description": "أهم مورد مجتمعي لتعديل لعبة هايتيل، يقدّم أدلّة شاملة، ووثائق تفصيلية، وأدوات أساسية لمساعدتك على بدء رحلتك في عالم صناعة المودز.",
     "documentation": "الوثائق",
-    "forum": "المنتدى",
+    "forum": "المُنتدى",
     "discord": "انضم إلى مجتمعنا!",
     "memberCount": "عدد الاعضاء: {count} "
   },
   "sponsors": {
-    "title": "Support Us",
-    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
+    "title": "إدعمنا",
+    "description": "",
     "ourSponsors": "Our Sponsors"
   },
   "misc": {
     "loading": "جارٍ التحميل…",
-    "failedToLoad": "Failed to load.",
+    "failedToLoad": "تعذّر التحميل.",
     "gitInfoUnavailable": "معلومات Git غير متوفرة",
-    "credit": "بقلم",
-    "supportUs": "ادعمنا"
+    "credit": "كتب بواسطة",
+    "supportUs": "إدعمنا"
   },
   "meta": {
     "established_information": {

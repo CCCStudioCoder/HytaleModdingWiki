@@ -1,0 +1,61 @@
+---
+title: Data Assets
+description: "Information om datatillgångar i Hytale och hur de driver spelbeteende och skapandet av innehåll. "
+---
+
+# Datatillgångar
+
+Datatillgångar är JSON filer vilket driver spelbeteende och kärninnehåll i Hytale. De bidrar med en kraftfull, datadriven metod till att skapa och modifiera spelelement utan behovet av att koda.
+
+## Vad är datatillgångar?
+
+Datatillgångar tillåter dig att skapa eller modifiera grundläggande spelelement genom JSON konfigurationsfiler:
+
+* **Block**: Definera nya blocktyper och deras egenskaper
+* **Föremål**: Skapa anpassade föremål med unika beteenden
+* **NPC:er**: Konfigurera icke-spelarkaraktärer och deras AI
+* **Världsgeneration**: Kontrollera hur världen är genererad
+* **Loot‑tabeller**: Definierar vilka föremål som släpps från olika källor
+
+## Jämförelse med Minecraft
+
+Datatillgångar är analoga till Minecrafts datapaket JSON filer, men med en betydligt bredare omfattning. Medans Minecrafts datapaket är någorlunda begränsade, Hytales datadrivna arkitektur innebär att centrala spelelement såsom block, föremål och NPC:er kan alla bli modifierade genom JSON filer.
+
+Denna utökade datadrivna metod ger moddare mycket mer möjligheter att anpassa spelet utan behov av att dyka ner i komplex programmering.
+
+## Utvecklingsverktyg
+
+Uppmärksamma att JSON-redigering kan vara jobbigt och felbenäget när det görs för hand, Hytale planerar att bidra med flertalet verktyg för att göra arbetet med datatillgångar mer tillgängligt.
+
+### Nodredigerare
+
+Hytale utvecklar en "Nodredigerare" för att göra hanteringen av datatillgångar mer användarvänlig:
+
+* **Visuellt gränssnitt**: Ger ett grafiskt sätt att arbeta med datarelationer
+* **Anpassningsfokus**: Särskilt användbart för att anpassa NPC:er, interaktioner och världsgeneration
+* **Integrerat arbetsflöde**: Fungerar direkt inom Hytales tillgångsredigerare för en enhetlig skaparsvit
+* **Tillgänglighet**: Gör komplexa datarelationer lättare att förstå och modifiera
+
+### Ytterligare Verktyg
+
+Förutom nodredigeraren, Hytale planerar att stödja:
+
+* **Visuella JSON generatorer**: Grafiska gränssnitt för att skapa JSON utan att skriva syntax
+* **Formulärbaserade redigerare**: Strukturerade formulär som automatiskt genererar lämplig JSON
+* **Flera arbetsflödesalternativ**: Olika verktyg för olika komfortnivåer och användningsområden
+
+## Kraft och enkelhet
+
+Effektiviteten av datatillgångar är demonstrerad av dess enkelhet. Till exempel, att göra raptorer ridningsbara i Hytale kräver enligt uppgifter bara 4 rader av JSON konfiguration, vilket visar hur kraftfullt men ändå tillgängligt systemet är utformat för att vara.
+
+Denna balans mellan kraft och tillgänglighet är centralt för Hytales moddningsfilosfi: att bidra med professionella verktyg som inte kräver programmeringsexpertis för att användas effektivt.
+
+## Integrering med andra system
+
+Datatillgångar fungerar sömlöst med Hytales andra utvecklingsstrategier:
+
+* **Visuell skriptning**: Kan referera och manipulera data definerad i datatillgångar
+* **Java plugin**: Kan läsa från och modifera datatillgångar för mer komplexa beteenden
+* **Tillgångsredigerare**: Bidrar med ett enhetligt gränssnitt för att hantera både visuella tillgångar och dess datakonfigureringar.
+
+Denna integration säkerställer att datatillgångar inte är isolerade konfigurationerfiler, utan snarare en central del av Hytales omfattande utvecklarmiljö.

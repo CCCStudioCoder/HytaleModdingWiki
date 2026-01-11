@@ -448,102 +448,103 @@ public class Player {
 }
 ```
 
-## The `static` Keyword
+## La palabra clave `estático`
 
-### Static Members
+### Miembros estáticos
 
 Una clase puede definir dos tipos de miembros:
 
-* **Instance members** — owned by each object (each instance has its own copy).
+* Miembros de instancia — pertenecen a cada objeto (cada instancia tiene su propia copia).
 
-* **Static members** — owned by the class (one shared copy for the entire type).
+* Miembros estáticos — pertenecen a la clase (una sola copia compartida para todo el tipo).
 
-Put simply: instance members belong to objects; static members belong to the class itself and are shared by all objects of that type.
+En pocas palabras: los miembros de instancia pertenecen a los objetos; los miembros estáticos pertenecen a la propia clase y son compartidos por todos los objetos de ese tipo.
 
 #### Declaración
 
 ```java
-    /* (access modifier) */ static ... memberName; 
+/* (modificador de acceso) */ estático ... Nombre Del Miembro;
+
 ```
 
 #### Ejemplo
 
 ```java
 class Data {
-    public int x; // Instanced member
-    public static int y = 1000; // Static member
+    public int x; // Miembro de instancia
+    public static int y = 1000; // Miembro estático
 
-    // Instanced member:
-    // can access to both static and non-static members
+    // Miembro de instancia:
+    // puede acceder tanto a miembros estáticos como no estáticos
     public void foo() {
-        x = 100; // OK - same as this.x = 100;
-        y = 100; // OK - same as Data.y = 200;
+        x = 100; // OK - igual que this.x = 100;
+        y = 100; // OK - igual que Data.y = 100;
     }
 
-    // Static member:
-    // cannot access to non-static variables
+    // Miembro estático:
+    // no puede acceder a variables no estáticas
     public static void bar() {
-        x = 100; // Error: non-static variable x cannot be renference from a static context
+        x = 100; // Error: la variable no estática x no puede referenciarse desde un contexto estático
         y = 100; // OK
     }
 }
+
 ```
 
-#### Accessing static members
+#### Accediendo a miembros estáticos
 
 ```java
-Data data = new Data();
+Data = nuevo Data();
 data.x = 1000; // OK
 
-data.y = 1000; // OK-ish - not really suggested; it's better to use Data.y
-Data.y = 1000; // OK - best practice
+data.y = 1000; // Más o menos OK - no se recomienda; es mejor usar Data.y
+Data.y = 1000; // OK - mejor práctica
 
-Data.x = 1000; // Error: cannot access instanced variables in a static context
+Data.x = 1000; // Error: no se puede acceder a variables de instancia desde un contexto estático
+
 ```
 
-### Static Fields
+### Campos estáticos
 
-A static field represents a data member owned by the class type rather then the object. Static fields are also stored in a specific memory location that's been shared between all the object instances that are created.
+Un campo estático representa un miembro de datos que pertenece al tipo de clase en lugar de al objeto. Los campos estáticos también se almacenan en una ubicación de memoria específica que es compartida entre todas las instancias de objetos que se crean.
 
-It is declared as following:
+Se declara de la siguiente manera:
 
 ```java
-/* (access modifier) (optional) */ static /* final/volatile (optional) */ fieldName;
+/* (modificador de acceso) (opcional) */ estático /* final/volatile (opcional) */ nombre Del Campo;
+
 ```
 
-Let's take the same Data class example and add this constructor:
+Tomemos el mismo ejemplo de la clase Data y añadamos este constructor:
 
 ```java
-public Data() {
-    y++; // remember that's the same as Data.y++;
+Publicó Data() {
+    y++; // recuerda que esto es lo mismo que Data.y++;
 }
+
 ```
 
 ```java
-// Every instance of Data will have a private copy of the instanced member x
-// However it will point to the same location in memory for the member y
+// Cada instancia de Data tendrá una copia privada del miembro de instancia x
+// Sin embargo, todas apuntarán a la misma ubicación en memoria para el miembro y
 Data d1 = new Data(); // y = 1001
 d1.x = 5;
 Data d2 = new Data(); // y = 1002
 d2.x = 25;
 Data d3 = new Data(); // y = 1003
-// ... and so on
+// ... y así sucesivamente
+
 ```
 
-### Static Methods
+### Métodos estáticos
 
-Static methods essentially represent a function member of a certain class type
+Los métodos estáticos representan esencialmente un miembro funcional de un determinado tipo de clase.
 
-From the Data class remember the function (instanced method) `foo` and (static method) `bar`
+En la clase Data, recuerda la función (método de instancia) fue y él (método estático) bar.
 
-One can access those methods via:
+Se puede acceder a esos métodos mediante:
 
 ```java
-Data d1 = new Data();
-
-d1.foo(); // Instanced method: Accessible ONLY by an object
-
-Data.bar(); // Static method: accessible without an object
 ```
 
 ### Static Initializer

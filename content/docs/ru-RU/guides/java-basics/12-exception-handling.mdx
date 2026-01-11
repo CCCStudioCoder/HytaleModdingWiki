@@ -45,7 +45,7 @@ System.out.println("Программа продолжает работу...");
       int result = 10 / 0;  // деление на ноль!
   } catch (ArithmeticException e) {
       // "Ловим" исключение
-      System.out.println("Деление на ноль не возможно!");
+      System.out.println("Деление на ноль невозможно!");
   }
   // программа продолжает работать
   ```
@@ -75,39 +75,39 @@ try {
 int[] numbers = {1, 2, 3};
 
 try {
-    int value = numbers[10];  // Index 10 не существует!
+    int value = numbers[10];  // Индекса 10 не существует!
 } catch (ArrayIndexOutOfBoundsException e) {
-    System.out.println("Недопустимый массив индексов!");
+    System.out.println("Недопустимый индекс массива!");
 }
 ```
 
 ### NumberFormatException
 
-Converting invalid strings to numbers:
+Преобразование недопустимых строк в числа:
 
 ```java
 try {
-    int number = Integer.parseInt("abc");  // Not a number!
+    int number = Integer.parseInt("abc");  // Не число!
 } catch (NumberFormatException e) {
-    System.out.println("Invalid number format!");
+    System.out.println("Недопустимый формат числа");
 }
 ```
 
 ### ArithmeticException
 
-Math errors like division by zero:
+Математические ошибки, такие как деление на ноль:
 
 ```java
 try {
     int result = 10 / 0;
 } catch (ArithmeticException e) {
-    System.out.println("Math error!");
+    System.out.println("Математическая ошибка!");
 }
 ```
 
-## Multiple Catch Blocks
+## Несколько Блоков Catch
 
-Handle different exceptions differently:
+Различные исключения обрабатываются по-разному:
 
 ```java
 String input = "abc";
@@ -117,78 +117,78 @@ try {
     int result = 100 / number;
     System.out.println(result);
 } catch (NumberFormatException e) {
-    System.out.println("Invalid number!");
+    System.out.println("Недопустимое число!");
 } catch (ArithmeticException e) {
-    System.out.println("Cannot divide by zero!");
+    System.out.println("Нельзя делить на ноль!");
 }
 ```
 
-## Catching Multiple Exception Types
+## Перехват Нескольких Типов Исключений
 
-Catch multiple exceptions in one block:
+Перехватывает несколько исключений в одном блоке:
 
 ```java
 try {
-    // Some risky code
+    // Какой-то рискованный код
 } catch (NumberFormatException | ArithmeticException e) {
-    System.out.println("Math-related error occurred!");
+    System.out.println("Произошла математическая ошибка!");
 }
 ```
 
-## The Finally Block
+## Блок Finally
 
-Code that **always** runs, whether exception occurs or not:
+Код, который **всегда** выполняется, независимо от того, возникает исключение или нет:
 
 ```java
 try {
-    System.out.println("Opening file...");
-    // Code that might fail
+    System.out.println("Открытие файла...");
+    // Код, который должен привести к исключению
 } catch (Exception e) {
-    System.out.println("Error: " + e.getMessage());
+    System.out.println("Ошибка: " + e.getMessage());
 } finally {
-    System.out.println("Closing file...");
-    // This ALWAYS runs - good for cleanup
+    System.out.println("Закрытие файла...");
+    // Это выполняется ВСЕГДА - подходит для очистки чего-либо
 }
 ```
 
-<Callout type="info" title="When to Use Finally">
-  Use `finally` for cleanup tasks that must always happen:
+<Callout type="" title="Когда Использовать Finally">
+  Используйте `finally` для задач очистки, которые должны выполняться всегда:
 
-  - Closing files
-  - Releasing resources
-  - Saving data
-  - Logging
+  - Закрытие файлов
+  - Освобождение ресурсов
+  - Сохранение данных
+  - Логирование
 
   ```java
   FileReader file = null;
   try {
       file = new FileReader("data.txt");
-      // Read file
+      // Чтение файла
   } catch (Exception e) {
-      System.out.println("Error reading file");
+      System.out.println("Ошибка чтения файла");
   } finally {
       if (file != null) {
-          file.close();  // Always close the file!
+          file.close();  // Всегда закрывайте файл!
       }
   }
   ```
 </Callout>
 
-## Getting Exception Information
+## Получение Информации Об Исключении
 
-The exception object contains useful information:
+Объект исключения содержит полезную информацию:
 
 ```java
 try {
     int result = Integer.parseInt("xyz");
 } catch (NumberFormatException e) {
-    System.out.println("Message: " + e.getMessage());
-    System.out.println("Type: " + e.getClass().getName());
-    e.printStackTrace();  // Print full error details
+    System.out.println("Сообщение: " + e.getMessage());
+    System.out.println("Тип: " + e.getClass().getName());
+    e.printStackTrace();  // Печатает полную информацию об ошибке
 }
 ```
 
-## Practical Examples
+## Практические примеры
 
 ### Safe Player Input
 
@@ -223,7 +223,7 @@ public class PlayerInput {
 }
 ```
 
-### Safe Item Durability Update
+### Безопасное Обновление Прочности Предмета
 
 ```java
 public class Item {
@@ -240,7 +240,7 @@ public class Item {
     public void damage(int amount) {
         try {
             if (amount < 0) {
-                throw new IllegalArgumentException("Damage cannot be negative!");
+                throw new IllegalArgumentException("Прочность не бывает отрицательной!");
             }
             
             durability -= amount;
@@ -249,10 +249,10 @@ public class Item {
                 durability = 0;
             }
             
-            System.out.println(name + " durability: " + durability + "/" + maxDurability);
+            System.out.println(name + " прочность: " + durability + "/" + maxDurability);
             
             if (durability == 0) {
-                System.out.println(name + " broke!");
+                System.out.println(name + " сломался!");
             }
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
@@ -261,7 +261,7 @@ public class Item {
 }
 ```
 
-### Safe Config Loading
+### Безопасная Загрузка Конфига
 
 ```java
 import java.util.HashMap;
@@ -491,14 +491,14 @@ public class Player {
   ```
 </Callout>
 
-## Practice Exercises
+## Практические упражнения
 
-1. **Safe Division Calculator**: Create a method that divides two numbers. Handle division by zero and invalid input gracefully.
+1. **Безопасное Деление**: Создайте метод, который делит два числа. Красиво обработайте деление на ноль (division by zero) и неверный ввод (invalid input).
 
-2. **Player Level Setter**: Create a method that sets player level (1-100). Throw an exception if invalid, and handle it in main.
+2. **Установка Уровня Игрока**: Создайте метод, который устанавливает уровень игрока (1-100). Вызовите исключение при ошибке и обработайте его в main.
 
-3. **Safe Array Access**: Create a method that safely accesses array elements. Return null if index is invalid instead of crashing.
+3. **Безопасный доступ к массиву**: Создайте метод, который будет безопасно обращаться к элементам массива. Возвратите null если индекс некорректен, вместо краша.
 
-4. **Config Parser**: Read a config string like "maxPlayers=10" and parse it. Handle invalid formats gracefully.
+4. **Парсер Конфига**: Прочтите строку конфига типа "maxPlayers=10" и соберите информацию с нее. Обработайте некорректные форматы красиво.
 
-5. **File Name Validator**: Create a method that checks if a filename is valid (no special characters, not empty). Throw exceptions for invalid names.
+5. **Поверка Имени Файла**: Создайте метод, который проверяет корректность имени файла (нет специальных символов, не пустое). Вызовите исключение для некорректных имен.

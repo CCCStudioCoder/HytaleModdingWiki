@@ -4,33 +4,33 @@ description: 15.12.2025 Slikey поділився деякими спостер�
 ---
 
 <Callout type="info" title="Примітка">
-  Наведена нижче інформація базується на висновках, якими поділився технічний директор Slikey 15 грудня 2025 року на сервері Hytale Discord. It provides an overview of the server code architecture and plugin capabilities.
+  Наведена нижче інформація базується на висновках, якими поділився технічний директор Slikey 15 грудня 2025 року на сервері Hytale Discord. Він надає огляд архітектури коду сервера та можливостей плагінів.
 
-  Majority of this document is just straight quotes from Slikey with minimal commentary. It is more over to preserve the information shared rather than reword it.
+  Більшість цього документа — це просто цитати зі Слікі з мінімальними коментарями. Важливіше зберегти обмін інформацією, а не перефразувати її.
 </Callout>
 
-# Server Source Code
+# Вихідний код сервера
 
-The server will be released as shared source - we will have the source code with no obfuscation and all their comments.
+Сервер буде випущено як спільний вихідний код — ми матимемо вихідний код без обфускації та всі їхні коментарі.
 
-### License
+### Ліцензія
 
-The license permits usage for any **hytale related** things, so as long as you dont use the server / source to make your own game or sell their algorithms.
+Ліцензія дозволяє використання для будь-яких речей, **пов'язаних з Hytale**, за умови, що ви не використовуєте сервер/вихідний код для створення власної гри або продажу їхніх алгоритмів.
 
-# Permission system
+# Система дозволів
 
-After being asked in the Hytale Modding server, Lead Architect Zero has replied:
+Після запитання на сервері модингу Hytale, провідний архітектор Zero відповів:
 
-It's quite basic, so don't expect much but yes we do have a permissions system built in. It also support implementing your own backend. Ex. if you wanted to store it in a database.
+Це досить просто, тому не очікуйте багато чого, але так, у нас є вбудована система дозволів. Він також підтримує реалізацію власного бекенду. Наприклад, якщо ви хочете зберегти його в базі даних.
 
-![Premission Source Snippet](/assets/premission-system.png)
+![Фрагмент вихідного коду доваолів](/assets/premission-system.png)
 
-# World Gen Implementation
+# Впровадження генерації світу
 
-The following block of text is directly from Lead Architect Zero:
+Наступний блок тексту безпосередньо від провідного архітектора Zero:
 
-You can totally implement a custom world gen in a plugin super easy. So if you want a totally different config or logic for generating terrain you can add that into a plugin and then configure a world to use that,
-We have some stuff load prefabs and there is existing code in the current world generators that could possibly be reused but no APIs specifically for the details of the generation itself.
+Ви можете дуже легко реалізувати власну генерацію світу за допомогою плагіна. Отже, якщо вам потрібна зовсім інша конфігурація або логіка для генерації ландшафту, ви можете додати це в плагін, а потім налаштувати світ для його використання.
+У нас є деякі префаби для завантаження, і в поточних генераторах світів є код, який, можливо, можна було б використовувати повторно, але немає API спеціально для деталей самої генерації.
 
 ```java
 public interface IWorldGenProvider {
@@ -59,35 +59,35 @@ public interface IWorldGen {
 }
 ```
 
-# Server Code Snippets
+# Фрагменти коду сервера
 
-Some code snippets from a plugin they made were also shared. The following snippets are directly quoted from Technical Director Slikey:
+Також було опубліковано деякі фрагменти коду з плагіна, який вони створили. Наступні фрагменти цитуються безпосередньо з повідомлень технічного директора Slikey:
 
-## BlockSpawner Plugin
+## Плагін BlockSpawner
 
-Alright, I'll drop some code snippets here for a simple plugin called "BlockSpawner" which will turn into a "random" block when put into the world based on the configured rules
+Добре, я опублікую тут кілька фрагментів коду для простого плагіна під назвою "BlockSpawner", який перетвориться на "випадковий" блок, коли його буде розміщено у світі, на основі налаштованих правил.
 
-There is more code here in general but it shows the Asset System and the plugin layout. You can see that the asset system defines "Codecs" which are used to serialize and deserialize data. Using these codecs we can generate schemas.
-Let's say you connect to a server and open the asset editor: the server will send those schemas - so every single asset type defined server side, even you own, now become part of the asset editor on the client - no need to do anything, you just get to enjoy the editor UI for making your assets that you defined
+Тут загалом більше коду, але він показує систему активів та макет плагіна. Ви можете бачити, що система активів визначає "Кодеки", які використовуються для серіалізації та десеріалізації даних. Використовуючи ці кодеки, ми можемо генерувати схеми
+Припустимо, ви підключаєтеся до сервера та відкриваєте редактор ресурсів: сервер надішле ці схеми, тож кожен окремий тип ресурсу, визначений на стороні сервера, навіть той, що належить вам, тепер стає частиною редактора ресурсів на клієнтській сторінці — не потрібно нічого робити, ви просто можете насолоджуватися інтерфейсом редактора для створення визначених вами ресурсів.
 
-![Block Spawner Code 1](/assets/blockspawner-code-1.png)
-![Block Spawner Code 2](/assets/blockspawner-code-2.png)
-![Block Spawner Code 3](/assets/blockspawner-code-3.png)
-![Block Spawner Manifest](/assets/blockspawner-manifest.png)
+![Код Block Spawner 1](/assets/blockspawner-code-1.png)
+![Код  Block Spawner 2](/assets/blockspawner-code-2.png)
+![Код  Block Spawner 3](/assets/blockspawner-code-3.png)
+![Маніфест Block Spawner ](/assets/blockspawner-manifest.png)
 
-> i guess this part also shows a bit how we use constants to store some language keys - Slikey
-> (in reference to the image below)
+> Я думаю, що ця частина також трохи показує, як ми використовуємо константи для зберігання деяких мовних ключів - Slikey
+> (зображення нижче)
 
-![Constants to store Language Keys](/assets/constants.png)
+![Константи для зберігання мовних ключів](/assets/constants.png)
 
-> you can completely customize the chunk storage provider, we for example made one that is just empty where it doesnt load any chunks from disk
-> you could add an MySQLChunkStorageProvider and it could read the data from a database
-> and the same goes for worldgen, you can simply implement this interface to generate a world generator - slikey
+> Ви можете повністю налаштувати постачальника сховища фрагментів, ми, наприклад, створили порожній, який не завантажує фрагменти з диска.
+> Ви можете додати MySQLChunkStorageProvider, і він зможе зчитувати дані з бази даних.
+> Те саме стосується і worldgen, ви можете просто реалізувати цей інтерфейс для створення генератора світів - Siikey.
 
-![Chunks 1](/assets/chunks-1.png)
-![Chunks 2](/assets/chunks-2.png)
-![Chunks 3](/assets/chunks-3.png)
+![Чанки 1](/assets/chunks-1.png)
+![Чанки 2](/assets/chunks-2.png)
+![Чанки 3](/assets/chunks-3.png)
 
-> i mean here are all the weapons defined, you tell me, obviously you will discover limitations but i think there is plenty of room to make changes - this stuff is actually hard though, there is a lot of QoL to have happen here
+> Я маю на увазі, що ось визначення всієї зброї, скажіть мені, очевидно, ви знайдете обмеження, але я думаю, що є багато можливостей для змін - насправді це складно, тут має відбутися багато покращення якості життя.
 
-![Weapons 1](/assets/weapons-1.png)
+![Зброя 1](/assets/weapons-1.png)

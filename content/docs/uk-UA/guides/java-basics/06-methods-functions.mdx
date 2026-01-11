@@ -1,94 +1,94 @@
 ---
-title: 06 - Methods (Functions)
-description: Learn how to organize and reuse code with methods.
+title: 06 - Методи (функції)
+description: Дізнайтеся, як організовувати та повторно використовувати код за допомогою методів.
 ---
 
-Methods are reusable blocks of code that perform specific tasks. They help you avoid repeating code and make your programs easier to understand.
+Методи - це блоки коду, які виконують певні завдання та можуть використовуватися повторно. Вони допомагають уникнути повторення коду та роблять ваші програми більш зрозумілими.
 
-## What is a Method?
+## Що таке метод?
 
-Think of a method as a recipe. You define it once, then use it whenever you need it.
+Уявіть собі метод як рецепт. Ви визначаєте його один раз, а потім використовуєте, коли це потрібно.
 
 ```java tab="Code"
 public class Game {
     public static void main(String[] args) {
-        greet();        // Call the method
-        greet();        // Call it again!
+        greet();        // Викликайте метод
+        greet();        // Викликайте його знову!
     }
     
-    // Method definition
+    // Визначення методу
     public static void greet() {
-        System.out.println("Welcome to Hytale!");
+        System.out.println("Ласкаво просимо до Hytale!");
     }
 }
 ```
 
 ```text tab="Output"
-Welcome to Hytale!
-Welcome to Hytale!
+Ласкаво просимо до Hytale!
+Ласкаво просимо до Hytale!
 ```
 
-## Method Structure
+## Структура методу
 
 ```java
-public static void methodName() {
-//  ^      ^     ^      ^       ^
-//  |      |     |      |       |
-// access static return name  parameters
-// modifier       type
-    // Code goes here
+public       static       void  methodName() {
+//  ^            ^          ^       ^        ^
+//  |            |          |       |        |
+// модифікатор  статичний   тип    ім'я  параметри
+//   доступу              повернення
+    // Код вводиться тут
 }
 ```
 
-We'll learn what `public` and `static` mean later. For now, just use them.
+Пізніше ми дізнаємося, що означають `public` і `static`. А поки що просто використовуйте їх.
 
-## Methods with Parameters
+## Методи з параметрами
 
-Parameters let you pass data into methods:
+Параметри дозволяють передавати дані в методи:
 
 ```java
 public static void greetPlayer(String name) {
-    System.out.println("Hello, " + name + "!");
+    System.out.println("Привіт, " + name + "!");
 }
 
 public static void main(String[] args) {
-    greetPlayer("Alice");  // Hello, Alice!
-    greetPlayer("Bob");    // Hello, Bob!
+    greetPlayer("Анна");  // Привіт, Анна!
+    greetPlayer("Богдан");    // Привіт, Богдан!
 }
 ```
 
-### Multiple Parameters
+### Кілька параметрів
 
 ```java
 public static void dealDamage(String target, int damage) {
-    System.out.println(target + " takes " + damage + " damage!");
+    System.out.println(target + " отримує " + damage + " шкоди!");
 }
 
 public static void main(String[] args) {
-    dealDamage("Zombie", 20);    // Zombie takes 20 damage!
-    dealDamage("Skeleton", 15);  // Skeleton takes 15 damage!
+    dealDamage("Зомбі", 20);    // Зомбі отримує 20 шкоди!
+    dealDamage("Скелет", 15);  // Скелет отримує 15 шкоди!
 }
 ```
 
-<Callout type="info" title="Parameter Order Matters">
-  When calling a method, arguments must match the parameter order:
+<Callout type="info" title="Порядок параметрів має значення">
+  При виклику методу аргументи повинні відповідати порядку параметрів:
 
   ```java
   public static void createItem(String name, int quantity, double price) {
       // ...
   }
 
-  // Correct
-  createItem("Sword", 1, 50.0);
+  // Правильно
+  createItem("Меч", 1, 50.0);
 
-  // Wrong - Order matters!
-  createItem(1, "Sword", 50.0);  // Error!
+  // Неправильно - порядок має значення!
+  createItem(1, "Меч", 50.0);  // Помилка!
   ```
 </Callout>
 
-## Methods with Return Values
+## Методи з поверненням значень
 
-Methods can send data back using `return`:
+Методи можуть повертати дані за допомогою `return`:
 
 ```java
 public static int add(int a, int b) {
@@ -102,17 +102,17 @@ public static void main(String[] args) {
 }
 ```
 
-The return type must match what you return:
+Тип повернення повинен відповідати тому, що ви повертаєте:
 
-* `void` - Returns nothing
-* `int` - Returns an integer
-* `double` - Returns a decimal
-* `boolean` - Returns true/false
-* `String` - Returns text
+* `void` - не повертає нічого
+* `int` - повертає ціле число
+* `double` - повертає десяткове число
+* `boolean` - повертає true/false
+* `String` - повертає текст
 
 ```java
 public static String getItemName() {
-    return "Diamond Sword";
+    return "Діамантовий меч";
 }
 
 public static boolean isPlayerAlive(int health) {
@@ -124,20 +124,20 @@ public static double calculateDamage(int attack, double multiplier) {
 }
 ```
 
-<Callout type="warning" title="Return Stops Execution">
-  Once a method hits `return`, it immediately exits. Code after `return` won't run!
+<Callout type="warning" title="Повернення зупиняє виконання">
+  Як тільки метод досягає `return`, він негайно завершується. Код після `return` не виконується!
 
   ```java
   public static int getValue() {
       return 10;
-      System.out.println("This never runs!");  // Unreachable code!
+      System.out.println("Це ніколи не виконається!");  // Недосяжний код!
   }
   ```
 </Callout>
 
-## Practical Examples
+## Практичні приклади
 
-### Health System
+### Система здоров'я
 
 ```java tab="Code"
 public static void displayHealth(String name, int health, int maxHealth) {
@@ -147,17 +147,17 @@ public static void displayHealth(String name, int health, int maxHealth) {
 }
 
 public static void main(String[] args) {
-    displayHealth("Player", 75, 100);
-    displayHealth("Boss", 450, 500);
+    displayHealth("Гравець", 75, 100);
+    displayHealth("Бос", 450, 500);
 }
 ```
 
 ```text tab="Output"
-Player: 75/100 (75.0%)
-Boss: 450/500 (90.0%)
+Гравець: 75/100 (75.0%)
+Бос: 450/500 (90.0%)
 ```
 
-### Damage Calculator
+### Калькулятор шкоди
 
 ```java tab="Code"
 public static int calculateDamage(int baseAttack, int weaponDamage, boolean isCritical) {
@@ -174,12 +174,12 @@ public static void main(String[] args) {
     int damage1 = calculateDamage(10, 15, false);  // 25
     int damage2 = calculateDamage(10, 15, true);   // 50
     
-    System.out.println("Normal hit: " + damage1);
-    System.out.println("Critical hit: " + damage2);
+    System.out.println("Нормальний удар: " + damage1);
+    System.out.println("Критичний удар: " + damage2);
 }
 ```
 
-### Level Requirements
+### Вимоги до рівня
 
 ```java tab="Code"
 public static int getXPForLevel(int level) {
@@ -196,15 +196,15 @@ public static void main(String[] args) {
     int playerLevel = 4;
     
     if (canLevelUp(playerXP, playerLevel)) {
-        System.out.println("You can level up!");
+        System.out.println("Ви можете підвищити свій рівень!");
     } else {
         int needed = getXPForLevel(playerLevel + 1) - playerXP;
-        System.out.println("Need " + needed + " more XP");
+        System.out.println("Треба ще " + needed + " досвід(-у)");
     }
 }
 ```
 
-### Distance Calculator
+### Калькулятор відстані
 
 ```java tab="Code"
 public static double calculateDistance(int x1, int y1, int x2, int y2) {
@@ -219,16 +219,16 @@ public static boolean isInRange(int x1, int y1, int x2, int y2, double range) {
 }
 
 public static void main(String[] args) {
-    // Check if enemy is in attack range
+    // Перевірка, чи ворог знаходиться в зоні атаки
     if (isInRange(0, 0, 5, 5, 10.0)) {
-        System.out.println("Target in range!");
+        System.out.println("Ціль в зоні атаки!");
     }
 }
 ```
 
-## Method Overloading
+## Перевантаження методів
 
-You can have multiple methods with the same name but different parameters:
+Ви можете мати кілька методів з однаковою назвою, але з різними параметрами:
 
 ```java
 public static void displayMessage(String message) {
@@ -242,33 +242,33 @@ public static void displayMessage(String message, int times) {
 }
 
 public static void main(String[] args) {
-    displayMessage("Hello");           // Calls first version
-    displayMessage("Hello", 3);        // Calls second version
+    displayMessage("Привіт");           // Викликає першу версію
+    displayMessage("Привіт", 3);        // Викликає другу версію
 }
 ```
 
-<Callout type="info" title="Method Overloading Rules">
-  Methods are considered different if they have:
+<Callout type="info" title="Правила перевантаження методів">
+  Методи вважаються різними, якщо вони мають:
 
-  * Different number of parameters
-  * Different types of parameters
-  * Different order of parameters
+  * Різну кількість параметрів
+  * Різні типи параметрів
+  * Різний порядок параметрів
 
   ```java
   public static void test(int a) { }
-  public static void test(int a, int b) { }        // Different count
-  public static void test(double a) { }            // Different type
-  public static void test(String a, int b) { }     // Different types
-  public static void test(int a, String b) { }     // Different order
+  public static void test(int a, int b) { }        // Різна кількість
+  public static void test(double a) { }            // Різний тип
+  public static void test(String a, int b) { }     // Різні типи
+  public static void test(int a, String b) { }     // Різний порядок
 
-  // Wrong - Only return type is different
+  // Неправильно - відрізняється тільки тип повернення
   public static int test(int a) { }
   ```
 </Callout>
 
-## Common Patterns in Hytale Modding
+## Поширені шаблони в модифікаціях Hytale
 
-### Item Creation
+### Створення предметів
 
 ```java
 public static Item createItem(String name, int durability) {
@@ -279,24 +279,24 @@ public static Item createItem(String name, int durability) {
 }
 
 public static Item createSword() {
-    return createItem("Sword", 100);
+    return createItem("Меч", 100);
 }
 
 public static Item createPickaxe() {
-    return createItem("Pickaxe", 150);
+    return createItem("Кайло", 150);
 }
 ```
 
-### Block Placement Validation
+### Перевірка розміщення блоку
 
 ```java
 public static boolean canPlaceBlock(int x, int y, int z) {
-    // Check if position is valid
+    // Перевірити, чи позиція є допустимою
     if (y < 0 || y > 255) {
         return false;
     }
     
-    // Check if block already exists
+    // Перевірити, чи блок вже існує
     if (isBlockAt(x, y, z)) {
         return false;
     }
@@ -306,15 +306,15 @@ public static boolean canPlaceBlock(int x, int y, int z) {
 
 public static void placeBlock(int x, int y, int z, String type) {
     if (canPlaceBlock(x, y, z)) {
-        // Place the block
-        System.out.println("Placed " + type + " at (" + x + ", " + y + ", " + z + ")");
+        // Розмістити блок
+        System.out.println("Розміщено " + type + " в (" + x + ", " + y + ", " + z + ")");
     } else {
-        System.out.println("Cannot place block there!");
+        System.out.println("Неможливо розмістити блок у цьому місці!");
     }
 }
 ```
 
-### Player State Checks
+### Перевірка стану гравця
 
 ```java
 public static boolean isLowHealth(int health, int maxHealth) {
@@ -325,88 +325,88 @@ public static String getHealthStatus(int health, int maxHealth) {
     double percentage = (health * 100.0) / maxHealth;
     
     if (percentage >= 75) {
-        return "Healthy";
+        return "Здоровий";
     } else if (percentage >= 50) {
-        return "Injured";
+        return "Поранений";
     } else if (percentage >= 25) {
-        return "Critical";
+        return "Критичний";
     } else {
-        return "Near Death";
+        return "На межі смерті";
     }
 }
 ```
 
-## Best Practices
+## Кращі практики
 
-<Callout type="info" title="Method Naming">
-  Use descriptive verb-based names that explain what the method does:
+<Callout type="info" title="Назва методу">
+  Використовуйте описові імена на основі дієслів, які пояснюють, що робить метод:
 
   ```java
-  // Good
+  // Добре
   public static void calculateDamage() { }
   public static boolean isPlayerAlive() { }
   public static String getItemName() { }
   public static void displayInventory() { }
 
-  // Bad
-  public static void dmg() { }        // Too short
-  public static void method1() { }    // Not descriptive
-  public static void stuff() { }      // Too vague
+  // Погано
+  public static void dmg() { }        // Занадто коротко
+  public static void method1() { }    // Не описово
+  public static void stuff() { }      // Занадто абстрактно
   ```
 </Callout>
 
-## Practice Exercises
+## Практичні вправи
 
-1. **Temperature Converter**: Write methods to convert:
-   * Celsius to Fahrenheit: `(C × 9/5) + 32`
-   * Fahrenheit to Celsius: `(F - 32) × 5/9`
+1. **Перетворювач температури**: Напишіть методи для перетворення:
+   * Цельсію в Фаренгейт: `(C × 9/5) + 32`
+   * Фаренгейт в Цельсій: `(F - 32) × 5/9`
 
-2. **Circle Calculator**: Create methods that calculate:
-   * Area: `π × radius²`
-   * Circumference: `2 × π × radius`
-   * Use `Math.PI` for π
+2. **Калькулятор кола**: Створіть методи для обчислення:
+   * Площа: `π × radius²`
+   * Довжину кола: `2 × π × radius`
+   * Використовуйте `Math.PI` для π
 
-3. **Item Durability**: Write these methods:
-   * `damageItem(int current, int damage)` - returns new durability
-   * `isBroken(int durability)` - returns true if durability is less than or equal to 0
-   * `repairItem(int current, int max)` - returns max durability
+3. **Міцність предмета**: Напишіть такі методи:
+   * `damageItem(int current, int damage)` - повертає нову міцність
+   * `isBroken(int durability)` - повертає true, якщо міцність менше або дорівнює 0
+   * `repairItem(int current, int max)` - повертає максимальну міцність
 
-4. **Password Validator**: Create a method that checks if a password is valid:
-   * At least 8 characters long
-   * Contains at least one number
-   * Returns true if valid, false otherwise
+4. **Перевірка пароля**: Створіть метод, який перевіряє, чи пароль є дійсним:
+   * Довжина не менше 8 символів
+   * Містить принаймні одну цифру
+   * Повертає true, якщо дійсний, інакше false
 
-## Common Mistakes
+## Поширені помилки
 
 ```java
-// Wrong - Forgetting return statement
+// Неправильно - забули оператор return
 public static int getValue() {
     int x = 10;
-    // Forgot to return!
+    // Забули return!
 } !
 
-// Correct
+// Правильно
 public static int getValue() {
     int x = 10;
     return x;
 }
 
-// Wrong - Wrong return type
+// Неправильно - неправильний тип повернення
 public static int getText() {
-    return "Hello";  // Error! Should return int, not String
+    return "Привіт";  // Помилка! Повинно повертати int, а не String
 }
 
-// Correct
+// Правильно
 public static String getText() {
-    return "Hello";
+    return "Привіт";
 }
 
-// Wrong - Not calling the method
+// Неправильно - не викликається метод
 public static void main(String[] args) {
-    greet;  // Error! Missing ()
+    greet;  // Помилка! Відсутні ()
 }
 
-// Correct
+// Правильно
 public static void main(String[] args) {
     greet();
 }

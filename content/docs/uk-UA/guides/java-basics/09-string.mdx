@@ -1,108 +1,108 @@
 ---
-title: 09 - Working with Strings
-description: Master text manipulation and string operations in Java.
+title: 09 - Робота з рядками
+description: Опануйте маніпулювання текстом та операції з рядками в Java.
 ---
 
-Strings are one of the most commonly used types in Java. They're essential for handling player names, chat messages, item descriptions, and like everything you see.
+Рядки - один з найпоширеніших типів у Java. Вони необхідні для обробки імен гравців, повідомлень у чаті, описів предметів та всього, що ви бачите.
 
-## String Basics
+## Основи рядків
 
-Strings are objects that store text:
+Рядки - це об'єкти, що зберігають текст:
 
 ```java
-String name = "Simon";
-String message = "Welcome to Hytale!";
+String name = "Саймон";
+String message = "Ласкаво просимо до Hytale!";
 String empty = "";
 ```
 
-<Callout type="warning" title="Strings are Immutable">
-  Once created, a String **cannot be changed**. Methods that seem to modify a string actually create a new one!
+<Callout type="warning" title="Строки є незмінними">
+  Після створення строку її **неможливо змінити**. Методи, які, здавалося б, модифікують строку, насправді створюють нову!
 
   ```java
-  String text = "Hello";
-  text.toUpperCase();           // Creates "HELLO" but doesn't save it
-  System.out.println(text);     // Still "Hello"
+  String text = "Привіт";
+  text.toUpperCase();           // Створює "ПРИВІТ", але не зберігає її
+  System.out.println(text);     // Все ще "Привіт"
 
-  String upper = text.toUpperCase();  // ✓ Save the result
-  System.out.println(upper);          // "HELLO"
+  String upper = text.toUpperCase();  // ✓ Зберегти результат
+  System.out.println(upper);          // "ПРИВІТ"
   ```
 </Callout>
 
-## String Methods
+## Методи рядків
 
-### Length
+### Довжина
 
 ```java
-String name = "Alice";
+String name = "Анна";
 int length = name.length();
-System.out.println(length);  // 5
+System.out.println(length);  // 4
 ```
 
-### Changing Case
+### Зміна регістру
 
 ```java
-String text = "Hello World";
-String upper = text.toUpperCase();  // "HELLO WORLD"
-String lower = text.toLowerCase();  // "hello world"
+String text = "Привіт світ";
+String upper = text.toUpperCase();  // "ПРИВІТ СВІТ"
+String lower = text.toLowerCase();  // "привіт світ"
 ```
 
-### Checking Contents
+### Перевірка вмісту
 
 ```java
-String message = "Welcome to Hytale";
+String message = "Ласкаво просимо до Hytale";
 
 boolean hasHytale = message.contains("Hytale");  // true
 boolean hasMinecraft = message.contains("Minecraft");  // false
 
-boolean starts = message.startsWith("Welcome");  // true
+boolean starts = message.startsWith("Ласкаво");  // true
 boolean ends = message.endsWith("Hytale");  // true
 ```
 
-### Extracting Parts
+### Витягування частин
 
 ```java
-String text = "Hello World";
+String text = "Привіт світ";
 
-char first = text.charAt(0);      // 'H'
-char last = text.charAt(10);      // 'd'
+char first = text.charAt(0);      // 'П'
+char last = text.charAt(10);      // 'т'
 
-String sub1 = text.substring(0, 5);   // "Hello"
-String sub2 = text.substring(6);      // "World"
+String sub1 = text.substring(0, 6);   // "Привіт"
+String sub2 = text.substring(7);      // "світ"
 ```
 
-<Callout type="info" title="Substring Indices">
-  `substring(start, end)` includes `start` but excludes `end`:
+<Callout type="info" title="Індекси підрядків">
+  `substring(start, end)` включає `start`, але виключає `end`:
 
   ```java
   String text = "Hytale";
-  //             012345 (indices)
+  //             012345 (індекси)
 
-  text.substring(0, 2);  // "Hy" (indices 0 and 1)
-  text.substring(2, 6);  // "tale" (indices 2, 3, 4, 5)
-  text.substring(2);     // "tale" (from 2 to end)
+  text.substring(0, 2);  // "Hy" (індекси 0 і 1)
+  text.substring(2, 6);  // "tale" (індекси 2, 3, 4, 5)
+  text.substring(2);     // "tale" (від 2 до кінця)
   ```
 </Callout>
 
-### Replacing Text
+### Заміна тексту
 
 ```java
-String text = "I love Minecraft";
+String text = "Я люблю Minecraft";
 String replaced = text.replace("Minecraft", "Hytale");
-System.out.println(replaced);  // "I love Hytale"
+System.out.println(replaced);  // "Я люблю Hytale"
 
-String noSpaces = "Hello World".replace(" ", "");
-System.out.println(noSpaces);  // "HelloWorld"
+String noSpaces = "Привіт Світ".replace(" ", "");
+System.out.println(noSpaces);  // "ПривітСвіт"
 ```
 
-### Trimming Whitespace
+### Обрізання пробілів
 
 ```java
-String messy = "  Hello World  ";
+String messy = "  Привіт світ  ";
 String clean = messy.trim();
-System.out.println(clean);  // "Hello World" (no spaces at ends)
+System.out.println(clean);  // "Привіт світ" (без пробілів на початку та в кінці)
 ```
 
-### Splitting Strings
+### Розділення рядків
 
 ```java
 String command = "give player sword 5";
@@ -114,109 +114,109 @@ System.out.println(parts[2]);  // "sword"
 System.out.println(parts[3]);  // "5"
 ```
 
-## String Comparison
+## Порівняння рядків
 
-<Callout type="warning" title="Never Use == for Strings">
-  Always use `.equals()` to compare string contents!
+<Callout type="warning" title="Ніколи не використовуйте == для рядків">
+  Завжди використовуйте `.equals()` для порівняння вмісту рядків!
 
   ```java
-  String name1 = "Steve";
-  String name2 = "Steve";
+  String name1 = "Стів";
+  String name2 = "Стів";
 
-  // Wrong - Compares object references
+  // Неправильно - порівнює посилання на об'єкти
   if (name1 == name2) {
-      System.out.println("Same");
+      System.out.println("Те саме");
   }
 
-  // Correct - Compares actual text
+  // Правильно - порівнює фактичний текст
   if (name1.equals(name2)) {
-      System.out.println("Same");
+      System.out.println("Те саме");
   }
 
-  // Ignore case when comparing
-  if (name1.equalsIgnoreCase("steve")) {
-      System.out.println("Same (ignoring case)");
+  // Ігнорувати регістр при порівнянні
+  if (name1.equalsIgnoreCase("стів")) {
+      System.out.println("Те саме (без урахування регістру)");
   }
   ```
 </Callout>
 
-### Comparing Order
+### Порядок порівняння
 
 ```java
 String a = "Apple";
 String b = "Banana";
 
 int result = a.compareTo(b);
-// result < 0 if a comes before b
-// result == 0 if a equals b
-// result > 0 if a comes after b
+// результат < 0, якщо a йде перед b
+// результат == 0, якщо a дорівнює b
+// результат > 0, якщо a йде після b
 
 if (a.compareTo(b) < 0) {
-    System.out.println(a + " comes before " + b);
+    System.out.println(a + " йде перед " + b);
 }
 ```
 
-## String Concatenation
+## Об'єднання рядків
 
-### Using + Operator
+### Використання оператора +
 
 ```java
-String first = "Hello";
-String second = "World";
-String combined = first + " " + second;  // "Hello World"
+String first = "Привіт";
+String second = "світ";
+String combined = first + " " + second;  // "Привіт світ"
 
 int score = 100;
-String message = "Score: " + score;  // "Score: 100"
+String message = "Рахунок: " + score;  // "Рахунок: 100"
 ```
 
-### Using concat()
+### Використання concat()
 
 ```java
-String result = "Hello".concat(" World");  // "Hello World"
+String result = "Привіт".concat(" світ");  // "Привіт світ"
 ```
 
-### Building Long Strings
+### Створення довгих рядків
 
-For many concatenations, use `StringBuilder`:
+Для багатьох конкатенацій використовуйте `StringBuilder`:
 
 ```java
 StringBuilder builder = new StringBuilder();
-builder.append("Player: ");
-builder.append("Alice");
-builder.append(", Level: ");
+builder.append("Гравець: ");
+builder.append("Анна");
+builder.append(", Рівень: ");
 builder.append(10);
-builder.append(", Health: ");
+builder.append(", Здоров'я: ");
 builder.append(100);
 
 String result = builder.toString();
 System.out.println(result);
-// "Player: Alice, Level: 10, Health: 100"
+// "Гравець: Анна, Рівень: 10, Здоров'я: 100"
 ```
 
-<Callout type="info" title="Why StringBuilder?">
-  Regular concatenation creates many temporary strings:
+<Callout type="info" title="Чому StringBuilder?">
+  Звичайне об'єднання створює багато тимчасових рядків:
 
   ```java
-  // Inefficient - Creates many temporary strings
+  // Неефективно - створює багато тимчасових рядків
   String result = "";
   for (int i = 0; i < 1000; i++) {
-      result = result + i;  // Creates 1000 temporary strings!
+      result = result + i;  // Створює 1000 тимчасових рядків!
   }
 
-  // Efficient - StringBuilder is mutable
+  // Ефективно - StringBuilder є змінюваним
   StringBuilder sb = new StringBuilder();
   for (int i = 0; i < 1000; i++) {
-      sb.append(i);  // Modifies one object
+      sb.append(i);  // Змінює один об'єкт
   }
   String result = sb.toString();
   ```
 
-  Use `StringBuilder` when building strings in loops!
+  Використовуйте `StringBuilder` під час побудови рядків у циклах!
 </Callout>
 
-## Practical Examples
+## Практичні приклади
 
-### Parse Player Command
+### Аналіз команди гравця
 
 ```java
 public class CommandParser {
@@ -229,10 +229,10 @@ public class CommandParser {
         String item = parts[2];                     // "diamond_sword"
         int amount = Integer.parseInt(parts[3]);    // 1
         
-        System.out.println("Action: " + action);
-        System.out.println("Player: " + player);
-        System.out.println("Item: " + item);
-        System.out.println("Amount: " + amount);
+        System.out.println("Дія: " + action);
+        System.out.println("Гравець: " + player);
+        System.out.println("Предмет: " + item);
+        System.out.println("Кількість: " + amount);
     }
     
     public static void main(String[] args) {
@@ -241,7 +241,7 @@ public class CommandParser {
 }
 ```
 
-### Format Player Display Name
+### Оформлення імені гравця
 
 ```java
 public class PlayerFormatter {
@@ -253,27 +253,27 @@ public class PlayerFormatter {
         }
         
         formatted.append(name);
-        formatted.append(" (Lv. ").append(level).append(")");
+        formatted.append(" (Рів. ").append(level).append(")");
         
         return formatted.toString();
     }
     
     public static void main(String[] args) {
-        String display1 = formatName("Alice", 10, "VIP");
-        System.out.println(display1);  // "[VIP] Alice (Lv. 10)"
+        String display1 = formatName("Анна", 10, "VIP");
+        System.out.println(display1);  // "[VIP] Анна (Рів. 10)"
         
-        String display2 = formatName("Bob", 5, null);
-        System.out.println(display2);  // "Bob (Lv. 5)"
+        String display2 = formatName("Богдан", 5, null);
+        System.out.println(display2);  // "Богдан (Рів. 5)"
     }
 }
 ```
 
-### Validate Username
+### Перевірка імені користувача
 
 ```java
 public class UsernameValidator {
     public static boolean isValid(String username) {
-        // Rules: 3-16 characters, letters and numbers only
+        // Правила: 3-16 символів, тільки літери та цифри
         
         if (username == null || username.isEmpty()) {
             return false;
@@ -297,14 +297,14 @@ public class UsernameValidator {
     
     public static void main(String[] args) {
         System.out.println(isValid("Steve"));      // true
-        System.out.println(isValid("Player_123")); // false (has underscore)
-        System.out.println(isValid("ab"));         // false (too short)
-        System.out.println(isValid(""));           // false (empty)
+        System.out.println(isValid("Player_123")); // false (містить підкреслення)
+        System.out.println(isValid("ab"));         // false (занадто коротке)
+        System.out.println(isValid(""));           // false (порожнє)
     }
 }
 ```
 
-### Item Description Builder
+### Конструктор опису предмета
 
 ```java
 public class ItemDescription {
@@ -312,42 +312,42 @@ public class ItemDescription {
                                          int damage, int durability) {
         StringBuilder desc = new StringBuilder();
         
-        // Title with rarity color code
+        // Заголовок з кодом кольору рідкісності
         desc.append(getRarityColor(rarity));
         desc.append(name);
         desc.append("\n");
         
-        // Stats
-        desc.append("Damage: ").append(damage).append("\n");
-        desc.append("Durability: ").append(durability).append("/");
+        // Показники
+        desc.append("Шкода: ").append(damage).append("\n");
+        desc.append("Міцність: ").append(durability).append("/");
         desc.append(durability).append("\n");
-        desc.append("Rarity: ").append(rarity);
+        desc.append("Рідкісність: ").append(rarity);
         
         return desc.toString();
     }
     
     private static String getRarityColor(String rarity) {
         switch (rarity.toLowerCase()) {
-            case "legendary": return "§6";  // Gold
-            case "epic": return "§5";       // Purple
-            case "rare": return "§9";       // Blue
-            case "common": return "§f";     // White
-            default: return "§7";           // Gray
+            case "легендарна": return "§6";  // Золотий
+            case "епічна": return "§5";       // Фіолетовий
+            case "рідкісна": return "§9";       // Синій
+            case "звичайна": return "§f";     // Білий
+            default: return "§7";           // Сірий
         }
     }
     
     public static void main(String[] args) {
-        String desc = buildDescription("Excalibur", "Legendary", 50, 1000);
+        String desc = buildDescription("Екскалібур", "Легендарна", 50, 1000);
         System.out.println(desc);
     }
 }
 ```
 
-### Chat Message Filter
+### Фільтр повідомлень чату
 
 ```java
 public class ChatFilter {
-    private static String[] bannedWords = {"badword1", "badword2"};
+    private static String[] bannedWords = {"поганеслово1", "поганеслово2"};
     
     public static String filterMessage(String message) {
         String filtered = message.toLowerCase();
@@ -363,65 +363,65 @@ public class ChatFilter {
     }
     
     public static void main(String[] args) {
-        String message = "This is a badword1 test";
+        String message = "Це тест поганеслово1";
         String clean = filterMessage(message);
-        System.out.println(clean);  // "this is a ******** test"
+        System.out.println(clean);  // "Це тест ************"
     }
 }
 ```
 
-## String Formatting
+## Форматування рядків
 
-### Using String.format()
+### Використання String.format()
 
 ```java
-String name = "Alice";
+String name = "Анна";
 int level = 10;
 double health = 85.5;
 
-String formatted = String.format("%s is level %d with %.1f%% health", 
+String formatted = String.format("%s має рівень %d і %.1f%% здоров'я", 
                                  name, level, health);
 System.out.println(formatted);
-// "Alice is level 10 with 85.5% health"
+// "Анна має рівень 10 і 85.5% здоров'я"
 ```
 
-<Callout type="info" title="Format Specifiers">
-  Common format codes:
+<Callout type="info" title="Позначення формату">
+  Загальні коди формату:
 
-  - `%s` - String
-  - `%d` - Integer
-  - `%f` - Floating point
-  - `%.2f` - Float with 2 decimal places
-  - `%n` - New line (platform independent)
+  - `%s` - рядок
+  - `%d` - ціле число
+  - `%f` - число з плаваючою комою
+  - `%.2f` - число з плаваючою комою з 2 десятковими знаками
+  - `%n` - новий рядок (незалежно від платформи)
 
   ```java
-  String.format("Name: %s", "Steve");          // "Name: Steve"
-  String.format("Level: %d", 10);              // "Level: 10"
-  String.format("Health: %.1f", 85.5);         // "Health: 85.5"
-  String.format("Position: (%d, %d, %d)", 
-                10, 64, -5);                    // "Position: (10, 64, -5)"
+  String.format("Ім'я: %s", "Стів");            // "Ім'я: Стів"
+  String.format("Рівень: %d", 10);              // "Рівень: 10"
+  String.format("Здоров'я: %.1f", 85.5);        // "Здоров'я: 85.5"
+  String.format("Позиція: (%d, %d, %d)", 
+                10, 64, -5);                    // "Позиція: (10, 64, -5)"
   ```
 </Callout>
 
-## Common String Operations
+## Загальні операції з рядками
 
-### Check if String is Empty
+### Перевірка, чи рядок порожній
 
 ```java
 String text = "";
 
-// Check for empty or null
+// Перевірка на порожній або нульовий
 if (text == null || text.isEmpty()) {
-    System.out.println("Empty!");
+    System.out.println("Порожній!");
 }
 
-// Check for empty, null, or whitespace only
+// Перевірка на порожній, нульовий або тільки пробіл
 if (text == null || text.trim().isEmpty()) {
-    System.out.println("Empty or whitespace!");
+    System.out.println("Порожній або пробіл!");
 }
 ```
 
-### Count Occurrences
+### Підрахунок входжень
 
 ```java
 public static int countOccurrences(String text, String target) {
@@ -436,12 +436,12 @@ public static int countOccurrences(String text, String target) {
     return count;
 }
 
-// Usage
-int count = countOccurrences("hello hello world", "hello");
+// Використання
+int count = countOccurrences("привіт привіт світ", "привіт");
 System.out.println(count);  // 2
 ```
 
-### Reverse a String
+### Зворотний рядок
 
 ```java
 public static String reverse(String text) {
@@ -449,12 +449,12 @@ public static String reverse(String text) {
     return sb.reverse().toString();
 }
 
-// Usage
-String reversed = reverse("Hello");
-System.out.println(reversed);  // "olleH"
+// Використання
+String reversed = reverse("Привіт");
+System.out.println(reversed);  // "тівирП"
 ```
 
-### Check if Palindrome
+### Перевірка на паліндром
 
 ```java
 public static boolean isPalindrome(String text) {
@@ -463,31 +463,31 @@ public static boolean isPalindrome(String text) {
     return cleaned.equals(reversed);
 }
 
-// Usage
+// Використання
 System.out.println(isPalindrome("racecar"));     // true
 System.out.println(isPalindrome("hello"));       // false
 ```
 
-## Practice Exercises
+## Практичні вправи
 
-1. **Username Checker**: Write a method that checks if a username:
-   - Is between 3 and 16 characters
-   - Contains only letters, numbers, and underscores
-   - Doesn't start with a number
-   - Returns true if valid, false otherwise
+1. **Перевірка імені користувача**: Напишіть метод, який перевіряє, чи ім'я користувача:
+   - Складається з 3-16 символів
+   - Містить тільки літери, цифри та символи підкреслення
+   - Не починається з цифри
+   - Повертає true, якщо ім'я є допустимим, і false в іншому випадку
 
-2. **Command Parser**: Parse this command format: `/teleport x y z`
-   - Extract the coordinates
-   - Convert them to integers
-   - Return an array of the three values
+2. **Аналізатор команд**: Проаналізуйте цей формат команди: `/teleport x y z`
+   - Витягніть координати
+   - Перетворіть їх на цілі числа
+   - Поверніть масив із трьох значень
 
-3. **Chat Formatter**: Create a method that formats chat messages:
-   - Input: player name, rank, message
-   - Output: `"[RANK] PlayerName: message"`
-   - If no rank, just show `"PlayerName: message"`
+3. **Форматувальник чату**: Створіть метод, який форматує повідомлення в чаті:
+   - Вхідні дані: ім'я гравця, ранг, повідомлення
+   - Вихідні дані: `"[RANK] PlayerName: message"`
+   - Якщо рангу немає, просто покажіть `"PlayerName: message"`
 
-4. **Word Counter**: Count how many words are in a sentence (words are separated by spaces)
+4. **Лічильник слів**: Порахуйте, скільки слів у реченні (слова розділені пробілами)
 
-5. **Title Case**: Convert a string to title case:
-   - Input: `"hello world"`
-   - Output: `"Hello World"`
+5. **Великі літери**: Перетворіть рядок у форму заголовка:
+   - Вхідні дані: `"hello world"`
+   - Вихідні дані: `"Hello World"`

@@ -532,7 +532,7 @@ public class MyClass {
 }
 ```
 
-Métodos Object comuns a serem sobrescritos:
+Os métodos Object comuns a serem sobrescritos:
 
 ```java
 public class Player {
@@ -541,7 +541,7 @@ public class Player {
     
     @Override
     public String toString() {
-        return "Jogador: " + name + " (Nível " + level + ")";
+        return "Jogador: " + name + " (Nv. " + level + ")";
     }
     
     @Override
@@ -560,12 +560,12 @@ public class Player {
 `final` evita herança ou sobrescrição:
 
 ```java
-// Classe final - não pode ser estendida
+// Classe final — não pode ser estendida
 public final class SpecialItem {
     // Nenhuma classe pode estendê-la
 }
 
-// Método final - não pode ser sobrescrito
+// Método final — não pode ser sobrescrito
 public class Entity {
     public final void printName() {
         System.out.println(name);
@@ -583,7 +583,7 @@ public class Player extends Entity {
 ## Erros comuns
 
 ```java
-// Errado - super() foi esquecido
+// Errado —super() foi esquecido
 public class Player extends Entity {
     public Player(String name) {
         // Erro! Entity não possui um construtor sem argumento
@@ -597,33 +597,33 @@ public class Player extends Entity {
     }
 }
 
-// Errado - Acessando membros private
+// Errado — Acessando membros private
 public class Child extends Parent {
     public void test() {
         privateVar = 10;  // Erro! private não é herdado
     }
 }
 
-// Correto - Usa protected
+// Correto — Usa protected
 public class Parent {
     protected int protectedVar;  // O filho pode acessar
 }
 
-// Errado - Herança múltipla (não é permitida em Java)
+// Errado — Herança múltipla (não é permitida em Java)
 public class Child extends Parent1, Parent2 {  // Erro!
 }
 
-// Correto - Apenas uma herança
+// Correto — Apenas uma herança
 public class Child extends Parent {
 }
 ```
 
 ## Exercícios práticos
 
-1. **Hierarquia de veículos**: Crie uma classe `Vehicle` com propriedades como velocidade e combustível. Crie as subclasses `Car` e `Motorcycle` com suas próprias características.
+1. **Hierarquia de veículos**: crie uma classe `Vehicle` com propriedades como velocidade e combustível. Crie as subclasses `Car` e `Motorcycle` com suas próprias características.
 
-2. **Calculadora de formato**: Crie uma classe `Shape` com o método `calculateArea()`. Crie as subclasses `Circle`, `Rectangle` e `Triangle` que sobrescrevem este método.
+2. **Calculadora de formato**: crie uma classe `Shape` com o método `calculateArea()`. Crie as subclasses `Circle`, `Rectangle` e `Triangle` que sobrescrevem esse método.
 
-3. **Personagens de RPG**: Crie uma classe `Character`. Estenda-a para criar as classes `Warrior`, `Mage` e `Archer` com habilidades únicas.
+3. **Personagens de RPG**: crie uma classe `Character`. Estenda-a para criar as classes `Warrior`, `Mage` e `Archer` com habilidades únicas.
 
-4. **Sons de animais**: Crie uma classe `Animal` com o método `makeSound()`. Crie várias subclasses de animais que sobrescrevem este método.
+4. **Sons de animais**: crie uma classe `Animal` com o método `makeSound()`. Crie várias subclasses de animais que sobrescrevem este método.

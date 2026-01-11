@@ -1,61 +1,61 @@
 ---
-title: 12 - Exception Handling
-description: Learn how to handle errors gracefully in your Java programs.
+title: 12 - Gestion des Exceptions
+description: Apprenez à gérer les erreurs avec grâce dans vos programmes Java.
 ---
 
-Exceptions are errors that occur while your program is running. Instead of crashing, you can "catch" these errors and handle them gracefully.
+Les exceptions sont des erreurs qui arrivent pendant que votre programme est exécuté. Au lieu de crasher, vous pouvez "attraper" (catch) ces erreurs et les gérer avec grâce.
 
-## What is an Exception?
+## Qu'est-ce qu'une Exception ?
 
-An exception is an event that disrupts the normal flow of your program:
+Une exception est un événement qui perturbe le flux normal de votre programme :
 
 ```java
 String text = null;
-System.out.println(text.length());  // NullPointerException - crashes!
+System.out.println(text.length());  // NullPointerException - crash !
 ```
 
-Without handling, this crashes your mod and breaks the game!
+Sans gestion, cela ferait crasher votre mod et casserait le jeu !
 
-## Try-Catch Blocks
+## Blocs d'instructions Try-Catch
 
-Use `try-catch` to handle exceptions:
+Utilisez `try-catch` pour gérer les exceptions :
 
 ```java
 try {
-    // Code that might throw an exception
+    // Code qui pourrait lancer une exception
     String text = null;
     System.out.println(text.length());
 } catch (NullPointerException e) {
-    // Code to handle the error
-    System.out.println("Error: text was null!");
+    // Code pour gérer l'erreur
+    System.out.println("Erreur : la variable text était null !");
 }
 
-System.out.println("Program continues...");
+System.out.println("Le programme continue...");
 ```
 
-<Callout type="info" title="How Try-Catch Works">
-  1. Code in `try` block runs normally
-  2. If an exception occurs, execution jumps to `catch` block
-  3. After `catch` block, program continues normally
-  4. If no exception occurs, `catch` block is skipped
+<Callout type="info" title="Comment Try-Catch fonctionne">
+  1. Le code dans le bloc `try` s'exécute normalement
+  2. Si une exception arrive, l'exécution passe dans le bloc `catch`
+  3. Après le bloc `catch`, le programme continue normalement
+  4. Si aucune exception n'arrive, le bloc `catch` est ignoré
 
   ```java
   try {
-      // Try to do something risky
-      int result = 10 / 0;  // Division by zero!
+      // Essaie de faire quelque chose de risqué
+      int result = 10 / 0;  // Division par zéro !
   } catch (ArithmeticException e) {
-      // Handle the error
-      System.out.println("Can't divide by zero!");
+      // Gère l'erreur
+      System.out.println("On ne peut pas diviser par zéro !");
   }
-  // Program keeps running
+  // Le programme continue de s'exécuter
   ```
 </Callout>
 
-## Common Exception Types
+## Les types courants d'Exception
 
 ### NullPointerException
 
-Accessing methods/properties on null objects:
+Tentative d'accéder aux méthodes/propriétés sur des objets null :
 
 ```java
 String name = null;
@@ -63,51 +63,51 @@ String name = null;
 try {
     int length = name.length();
 } catch (NullPointerException e) {
-    System.out.println("Name is null!");
+    System.out.println("name est null !");
 }
 ```
 
 ### ArrayIndexOutOfBoundsException
 
-Accessing invalid array index:
+Tentative d'accéder à un indice de tableau invalide :
 
 ```java
-int[] numbers = {1, 2, 3};
+int[] numbers = { 1, 2, 3 };
 
 try {
-    int value = numbers[10];  // Index 10 doesn't exist!
+    int value = numbers[10];  // L'indice 10 n'existe pas !
 } catch (ArrayIndexOutOfBoundsException e) {
-    System.out.println("Invalid array index!");
+    System.out.println("Indice de tableau invalide !");
 }
 ```
 
 ### NumberFormatException
 
-Converting invalid strings to numbers:
+Tentative de convertir un String invalide en nombre :
 
 ```java
 try {
-    int number = Integer.parseInt("abc");  // Not a number!
+    int number = Integer.parseInt("abc");  // Pas un nombre !
 } catch (NumberFormatException e) {
-    System.out.println("Invalid number format!");
+    System.out.println("Format de nombre invalide !");
 }
 ```
 
 ### ArithmeticException
 
-Math errors like division by zero:
+Les erreurs mathématiques comme la division par zéro :
 
 ```java
 try {
     int result = 10 / 0;
 } catch (ArithmeticException e) {
-    System.out.println("Math error!");
+    System.out.println("Erreur mathématique !");
 }
 ```
 
-## Multiple Catch Blocks
+## Plusieurs blocs Catch
 
-Handle different exceptions differently:
+Gérer différentes exceptions différemment :
 
 ```java
 String input = "abc";
@@ -117,80 +117,80 @@ try {
     int result = 100 / number;
     System.out.println(result);
 } catch (NumberFormatException e) {
-    System.out.println("Invalid number!");
+    System.out.println("Nombre invalide !");
 } catch (ArithmeticException e) {
-    System.out.println("Cannot divide by zero!");
+    System.out.println("Impossible de diviser par zéro !");
 }
 ```
 
-## Catching Multiple Exception Types
+## Attraper plusieurs types d'exception
 
-Catch multiple exceptions in one block:
+Attrapez plusieurs exceptions dans un seul bloc :
 
 ```java
 try {
-    // Some risky code
+    // Code risqué
 } catch (NumberFormatException | ArithmeticException e) {
-    System.out.println("Math-related error occurred!");
+    System.out.println("Une erreur relative aux mathématiques est arrivée !");
 }
 ```
 
-## The Finally Block
+## Le bloc Finally
 
-Code that **always** runs, whether exception occurs or not:
+Du code qui s'exécute **toujours**, qu'une exception arrive ou non :
 
 ```java
 try {
-    System.out.println("Opening file...");
-    // Code that might fail
+    System.out.println("Ouverture du fichier...");
+    // Code qui peut échouer
 } catch (Exception e) {
-    System.out.println("Error: " + e.getMessage());
+    System.out.println("Erreur : " + e.getMessage());
 } finally {
-    System.out.println("Closing file...");
-    // This ALWAYS runs - good for cleanup
+    System.out.println("Fermeture du fichier...");
+    // Ceci s'exécute TOUJOURS - pratique pour le nettoyage
 }
 ```
 
-<Callout type="info" title="When to Use Finally">
-  Use `finally` for cleanup tasks that must always happen:
+<Callout type="info" title="Quand utiliser Finally">
+  Utilisez `finally` pour des tâches de nettoyage qui doivent toujours se faire :
 
-  - Closing files
-  - Releasing resources
-  - Saving data
-  - Logging
+  - Fermer des fichiers
+  - Libérer des ressources
+  - Sauvegarder des données
+  - Remplir le Log
 
   ```java
   FileReader file = null;
   try {
       file = new FileReader("data.txt");
-      // Read file
+      // Lis le fichier
   } catch (Exception e) {
-      System.out.println("Error reading file");
+      System.out.println("Erreur en lisant le fichier");
   } finally {
       if (file != null) {
-          file.close();  // Always close the file!
+          file.close();  // Ferme toujours le fichier !
       }
   }
   ```
 </Callout>
 
-## Getting Exception Information
+## Obtenir des informations des Exceptions
 
-The exception object contains useful information:
+L'objet exception contient des informations utiles
 
 ```java
 try {
     int result = Integer.parseInt("xyz");
 } catch (NumberFormatException e) {
-    System.out.println("Message: " + e.getMessage());
-    System.out.println("Type: " + e.getClass().getName());
-    e.printStackTrace();  // Print full error details
+    System.out.println("Message : " + e.getMessage());
+    System.out.println("Type : " + e.getClass().getName());
+    e.printStackTrace();  // Afficher tous les détails de l'erreur
 }
 ```
 
-## Practical Examples
+## Exemples pratiques
 
-### Safe Player Input
+### Input du joueur sécurisé
 
 ```java
 import java.util.Scanner;
@@ -199,18 +199,18 @@ public class PlayerInput {
     public static int getPlayerChoice(Scanner scanner) {
         while (true) {
             try {
-                System.out.print("Enter choice (1-5): ");
+                System.out.print("Entrez votre choix (1-5): ");
                 String input = scanner.nextLine();
                 int choice = Integer.parseInt(input);
                 
                 if (choice < 1 || choice > 5) {
-                    System.out.println("Please enter a number between 1 and 5");
+                    System.out.println("Entrez un chiffre entre 1 et 5 s'il vous plaît");
                     continue;
                 }
                 
                 return choice;
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input! Please enter a number.");
+                System.out.println("Entrée invalide, entrez un chiffre s'il vous plaît.");
             }
         }
     }
@@ -218,12 +218,12 @@ public class PlayerInput {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int choice = getPlayerChoice(scanner);
-        System.out.println("You chose: " + choice);
+        System.out.println("Vous avez choisi : " + choice);
     }
 }
 ```
 
-### Safe Item Durability Update
+### Mise à jour de la durabilité d'un objet sécurisée
 
 ```java
 public class Item {
@@ -240,7 +240,7 @@ public class Item {
     public void damage(int amount) {
         try {
             if (amount < 0) {
-                throw new IllegalArgumentException("Damage cannot be negative!");
+                throw new IllegalArgumentException("Les dégâts ne peuvent pas être négatifs !");
             }
             
             durability -= amount;
@@ -249,19 +249,19 @@ public class Item {
                 durability = 0;
             }
             
-            System.out.println(name + " durability: " + durability + "/" + maxDurability);
+            System.out.println(name + " durabilité : " + durability + "/" + maxDurability);
             
             if (durability == 0) {
-                System.out.println(name + " broke!");
+                System.out.println(name + " s'est cassé !");
             }
         } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Erreur : " + e.getMessage());
         }
     }
 }
 ```
 
-### Safe Config Loading
+### Chargement de configuration sécurisé
 
 ```java
 import java.util.HashMap;
@@ -275,9 +275,9 @@ public class ConfigLoader {
     }
     
     private void loadDefaults() {
-        settings.put("maxPlayers", "10");
-        settings.put("difficulty", "normal");
-        settings.put("pvpEnabled", "true");
+        settings.put("joueursMax", "10");
+        settings.put("difficulté", "normale");
+        settings.put("pvpActivé", "true");
     }
     
     public int getIntSetting(String key, int defaultValue) {
@@ -288,7 +288,7 @@ public class ConfigLoader {
             }
             return Integer.parseInt(value);
         } catch (NumberFormatException e) {
-            System.out.println("Invalid number for " + key + ", using default");
+            System.out.println("Nombre invalide pour " + key + ", utilisation de la valeur par défaut");
             return defaultValue;
         }
     }
@@ -301,14 +301,14 @@ public class ConfigLoader {
             }
             return Boolean.parseBoolean(value);
         } catch (Exception e) {
-            System.out.println("Invalid boolean for " + key + ", using default");
+            System.out.println("Booléen invalide pour " + key + ", utilisation de la valeur par défaut");
             return defaultValue;
         }
     }
     
     public void setSetting(String key, String value) {
         if (key == null || value == null) {
-            System.out.println("Key and value cannot be null!");
+            System.out.println("Clé et valeur ne peuvent pas être null !");
             return;
         }
         settings.put(key, value);
@@ -316,7 +316,7 @@ public class ConfigLoader {
 }
 ```
 
-### Safe Array Access
+### Accès à un tableau sécurisés
 
 ```java
 public class Inventory {
@@ -329,14 +329,14 @@ public class Inventory {
     public boolean setItem(int slot, String item) {
         try {
             if (slot < 0 || slot >= items.length) {
-                throw new ArrayIndexOutOfBoundsException("Invalid slot: " + slot);
+                throw new ArrayIndexOutOfBoundsException("Emplacement invalide : " + slot);
             }
             
             items[slot] = item;
-            System.out.println("Placed " + item + " in slot " + slot);
+            System.out.println(item + " placé dans l'emplacement " + slot);
             return true;
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Erreur : " + e.getMessage());
             return false;
         }
     }
@@ -345,27 +345,27 @@ public class Inventory {
         try {
             return items[slot];
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Invalid slot: " + slot);
+            System.out.println("Emplacement invalide : " + slot);
             return null;
         }
     }
 }
 ```
 
-### Command Parser with Error Handling
+### Parseur de commande avec gestion d'erreur
 
 ```java
 public class CommandParser {
     public static void parseCommand(String command) {
         try {
             if (command == null || command.trim().isEmpty()) {
-                throw new IllegalArgumentException("Command cannot be empty!");
+                throw new IllegalArgumentException("Une commande ne peut pas être vide !");
             }
             
             String[] parts = command.split(" ");
             
             if (parts.length < 2) {
-                throw new IllegalArgumentException("Invalid command format!");
+                throw new IllegalArgumentException("Format de commande invalide !");
             }
             
             String action = parts[0];
@@ -374,53 +374,53 @@ public class CommandParser {
             switch (action) {
                 case "give":
                     if (parts.length < 4) {
-                        throw new IllegalArgumentException("Usage: give <player> <item> <amount>");
+                        throw new IllegalArgumentException("Usage : give <player> <item> <amount>");
                     }
                     String item = parts[2];
                     int amount = Integer.parseInt(parts[3]);
                     
                     if (amount <= 0) {
-                        throw new IllegalArgumentException("Amount must be positive!");
+                        throw new IllegalArgumentException("La quantité doit être positive !");
                     }
                     
-                    System.out.println("Giving " + amount + " " + item + " to " + target);
+                    System.out.println("Don de " + amount + " " + item + " à " + target);
                     break;
                     
                 case "tp":
                     if (parts.length < 5) {
-                        throw new IllegalArgumentException("Usage: tp <player> <x> <y> <z>");
+                        throw new IllegalArgumentException("Usage : tp <player> <x> <y> <z>");
                     }
                     int x = Integer.parseInt(parts[2]);
                     int y = Integer.parseInt(parts[3]);
                     int z = Integer.parseInt(parts[4]);
                     
-                    System.out.println("Teleporting " + target + " to " + x + ", " + y + ", " + z);
+                    System.out.println("Téléporte " + target + " en " + x + ", " + y + ", " + z);
                     break;
                     
                 default:
-                    throw new IllegalArgumentException("Unknown command: " + action);
+                    throw new IllegalArgumentException("Commande inconnue : " + action);
             }
         } catch (NumberFormatException e) {
-            System.out.println("Error: Invalid number in command!");
+            System.out.println("Erreur : nombre invalide dans la commande !");
         } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Erreur : " + e.getMessage());
         } catch (Exception e) {
-            System.out.println("Unexpected error: " + e.getMessage());
+            System.out.println("Erreur inattendue : " + e.getMessage());
         }
     }
     
     public static void main(String[] args) {
         parseCommand("give Steve diamond 5");
-        parseCommand("give Steve sword abc");  // Invalid number
+        parseCommand("give Steve sword abc");  // Nombre invalide
         parseCommand("tp Alice 10 64 20");
-        parseCommand("unknown command");       // Unknown command
+        parseCommand("unknown command");       // Commande inconnue
     }
 }
 ```
 
-## Throwing Exceptions
+## Lancer des Exceptions
 
-You can throw your own exceptions:
+Vous pouvez lancer vos propres exceptions :
 
 ```java
 public class Player {
@@ -428,77 +428,77 @@ public class Player {
     
     public void setHealth(int health) {
         if (health < 0) {
-            throw new IllegalArgumentException("Health cannot be negative!");
+            throw new IllegalArgumentException("La vie ne peut pas être négative !");
         }
         if (health > 100) {
-            throw new IllegalArgumentException("Health cannot exceed 100!");
+            throw new IllegalArgumentException("La vie ne peut pas excéder 100 !");
         }
         this.health = health;
     }
 }
 ```
 
-<Callout type="info" title="When to Throw Exceptions">
-  Throw exceptions when:
+<Callout type="info" title="Quand lancer des Exceptions">
+  Lancez des exceptions quand :
 
-  - Method receives invalid input
-  - Operation cannot be completed
-  - Preconditions are not met
-  - Something unexpected happens
+  - Une méthode reçoit une entrée invalide
+  - Une opération ne peut pas être réalisée
+  - Des préconditions ne sont pas réunies
+  - Quelque chose d'inattendu arrive
 
   ```java
   public void damagePlayer(int damage) {
       if (damage < 0) {
-          throw new IllegalArgumentException("Damage must be positive!");
+          throw new IllegalArgumentException("Les dégâts doivent être positifs !");
       }
-      // Apply damage
+      // Appliquer les dégâts
   }
 
   public Item getItem(int slot) {
       if (slot < 0 || slot >= inventory.length) {
-          throw new IndexOutOfBoundsException("Invalid inventory slot!");
+          throw new IndexOutOfBoundsException("Emplacement d'inventaire invalide !");
       }
       return inventory[slot];
   }
   ```
 </Callout>
 
-## Checked vs Unchecked Exceptions
+## Les Exceptions vérifiées vs non vérifiées
 
-<Callout type="warning" title="Exception Types">
-  **Unchecked Exceptions** (RuntimeException):
+<Callout type="warning" title="Types d'Exceptions">
+  **Exceptions non vérifiées** (RuntimeException) :
 
-  - Don't need to be caught
-  - Usually programming errors
-  - Examples: NullPointerException, ArrayIndexOutOfBoundsException
+  - N'ont pas besoin d'être attrapées
+  - Généralement des erreurs de programmation
+  - Exemples : NullPointerException, ArrayIndexOutOfBoundsException
 
-  **Checked Exceptions**:
+  **Exceptions vérifiées** :
 
-  - Must be caught or declared
-  - Usually external errors (files, network)
-  - Examples: IOException, FileNotFoundException
+  - Doivent être attrapées ou déclarées
+  - Généralement les erreurs externes (fichiers, réseau)
+  - Exemples : IOException, FileNotFoundException
 
   ```java
-  // Unchecked - no need to catch
+  // Non vérifiée - pas besoin d'attraper
   int result = 10 / 0;  // ArithmeticException
 
-  // Checked - must catch or declare
+  // Vérifiée - doit attraper ou déclarer
   try {
       FileReader file = new FileReader("data.txt");  // IOException
   } catch (IOException e) {
-      // Handle error
+      // Gérer l'erreur
   }
   ```
 </Callout>
 
-## Practice Exercises
+## Exercices pratiques
 
-1. **Safe Division Calculator**: Create a method that divides two numbers. Handle division by zero and invalid input gracefully.
+1. **Calculateur de division sécurisé** : créez une méthode qui divise deux nombres. Gérez la division par zéro et les entrées invalides avec grâce.
 
-2. **Player Level Setter**: Create a method that sets player level (1-100). Throw an exception if invalid, and handle it in main.
+2. **Setter de niveau de joueur** : créez une méthode qui définit le niveau du joueur (1-100). Lancez une exception si invalide, et gérez-le dans le main.
 
-3. **Safe Array Access**: Create a method that safely accesses array elements. Return null if index is invalid instead of crashing.
+3. **Accès à un tableau sécurisés** : créez une méthode qui accède aux éléments d'un tableau de manière sécurisée. Renvoie null si l'index est invalide au lieu de crasher.
 
-4. **Config Parser**: Read a config string like "maxPlayers=10" and parse it. Handle invalid formats gracefully.
+4. **Parseur de configuration** : lisez un String de configuration comme "joueursMax=10" et parsez-le. Gérez les formats invalides avec grâce.
 
-5. **File Name Validator**: Create a method that checks if a filename is valid (no special characters, not empty). Throw exceptions for invalid names.
+5. **Vérificateur de nom de fichier** : créez une méthode qui vérifie si un nom de fichier est valide (pas de caractères spéciaux, pas vide). Lancez des exceptions pour les noms invalides.

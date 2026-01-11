@@ -47,7 +47,7 @@ O sistema de personalização da interface do Hytale funciona através da seguin
 
 Hytale atualmente suporta várias implementações da UI, com planos para consolidar no NoesisGUI:
 
-#### Implementação Legado
+#### Implementação legado
 
 * Serve como um exemplo das capacidades da modificação do servidor
 * Utiliza uma combinação de elementos do jogo, recursos de marcação de interface e código de mod em Java.
@@ -56,21 +56,21 @@ Hytale atualmente suporta várias implementações da UI, com planos para consol
 
 #### NoesisGUI (framework principal)
 
-* Usa a linguagem de marcação XAML para a definição da IU
-* Compatível com várias linguagens para internacionalização
-* Executa bindings em C# no lado do cliente, não em C++
-* Representa a direção futura do sistema da UI do Hypixel
+* Usa a linguagem de marcação XAML para a definição da IU;
+* Compatível com várias linguagens para internacionalização;
+* Executa bindings em C# no lado do cliente, não em C++;
+* Representa a direção futura do sistema da IU do Hytale.
 
 #### Terceiro framework
 
-* Em processo de descontinuação
-* Será substituído por NoesisGUI como parte do esforço de consolidação
+* Em processo de descontinuação;
+* Será substituído por NoesisGUI como parte do esforço de consolidação.
 
 ### Considerações de desempenho
 
-Devido à natureza do processamento server-side da UI, existem características de desempenho inerentes a considerar:
+Devido à natureza do processamento server-side da IU, há características de desempenho que devem ser consideradas, como:
 
-* **Impacto de Latência**: Cliques dos botões e interações com a interface do usuário devem viajar para o servidor antes de ter efeito, o que significa que o ping da rede afeta diretamente a capacidade de resposta da UI
+* **Impacto na latência**: os cliques dos botões e interações com a interface do usuário devem viajar para o servidor antes de ter efeito. Isso significa que a latência da rede afeta diretamente a capacidade de resposta da IU;
 * **Sem Persistência de Cliente**: Sendo que os mods client-side não é suportado, nenhum valor modificado persiste no client
 * **Arquitetura Otimizada**: O sistema de Hytale foi projetado para minimizar a latência através de protocolos de comunicação eficientes e otimizar a performance do servidor, garantindo interações suaves apesar dos requisitos de processamento do lado do servidor
 

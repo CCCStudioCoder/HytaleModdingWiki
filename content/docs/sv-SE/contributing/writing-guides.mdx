@@ -1,0 +1,86 @@
+---
+title: Skriva guider
+---
+
+## Skapa en guidefil
+
+För att börja skriva en guide måste du skapa en fil med tillägget `.mdx`. Du måste skapa denna fil i katalogen '/content/docs/en', nu beror det på vilket avsnitt du vill göra guiden, så du kan bestämma vilken mapp du ska lägga in den i efter det.
+
+Anta att jag vill göra en java basics guide, jag skulle lägga den i `/content/docs/en/guides/java-basics`. Du måste gräva lite för att ta reda på var du vill placera den.
+
+<Callout>
+  Om det redan finns en guide i sektionen du vill skriva om kan du bara trycka på "Edit On GitHub" knappen på vår hemsida och så tar den dig till mappen. Nu kan du skriva i samma mapp så du kan få din guide i samma sektion.
+</Callout>
+
+## Frontmatter
+
+Frontmatter är metadata i din guide, den talar om för vår webbplats hur du kan visa din guide. Detta måste vara högst upp i filen, som börjar med `---` och slutar med `---`.
+
+Här är ett exempel:
+
+```mdx
+---
+title: "Java Basics"
+description: "Lär dig grunderna av java."
+authors:
+    - name: "Ditt namn"
+      url: "https://dinhemsida.com"
+---
+```
+
+Nu som du kan se, det är ganska självförklarande, du behöver bara fylla i detaljerna för din specifika guide. Om du inte har en URL som du vill länka till så skriv inte den raden. Dessutom är författarsektionen frivillig, så om du inte vill lägga till den kan du kan bara utelämna det, även om vi uppmuntrar dig att göra det.
+
+Indragen i frontmatter är viktigt, så håll koll på att hålla det i linje med exemplet.
+
+## Innehållets struktur
+
+Du bör strukturera innehållet i din guide på ett tydligt och organiserat sätt. Här är några tips på hur man gör det:
+
+- **Introduktion:** Börja med en översikt över ämnet och vad läsaren kan förvänta sig att lära sig.
+- **Förkunskapskrav:** Lista alla förutsättningar eller förkunskaper läsaren bör ha innan de dyker in i guiden.
+- **Steg-för-steg-instruktioner:** Bryta ner innehållet i tydliga, åtgärdbara steg. Använd rubriker och underrubriker för att organisera informationen.
+- **Kodexempel:** Inkludera kodutdrag för att illustrera nyckelpunkter. Se till att förklara varje exempel ordentligt.
+- \*\*Slutsats: \*\* Sammanfatta huvudpunkterna och uppmuntra läsaren att utforska vidare eller prova vad de har lärt sig.
+
+Om du nu skriver en riktigt stor sektion så borde du dela in denna i flera sidor så det är enklare för läsaren att ta in informationen. Ingen vill läsa en vägg av text bara sådär!
+
+När vi skriver guider borde vi också tänka på hur folk konsumerar de, och många människor föredrar att skumläsa innehållet istället för att läsa det i detalj. Detta är varför det är viktigt att dela information in i flera sidor, så det ser ut som en mindre mängd information för läsaren. Överväg även att använda punkter, numrerade listor eller andra formateringstekniker för att göra innehållet mer avläsningsbart.
+
+## Formatering
+
+Vi använder [Markdown](https://www.markdownguide.org/) för att formatera våra guider. Här är några viktiga punkter att tänka på:
+
+- Använd rubriker (`#`, `##`, `###`) för att organisera ditt innehåll.
+- Använd punkter och numrerade listor för tydlighet.
+- Använd kodblock (\`\`\`) för kodsnippets.
+- Använd länkar för att referera till andra guider eller externa resurser.
+
+Detta är samma typ av formatering som du ser på de flesta dokumentationswebbplatser, och även sociala medieplattformar som Discord.
+
+Du kan också göra en Callout för att lyfta fram viktig information eller tips. Använd följande syntax:
+
+```mdx
+<Callout>
+    Detta är ett callout-meddelande.
+</Callout>
+```
+
+<Callout>
+  Detta är ett callout-meddelande.
+</Callout>
+
+Du kan ändra färgen på callout genom att lägga till en `type`-attribut. Till exempel:
+
+```mdx
+<Callout type="info">
+    Detta är en informations-callout.
+</Callout>
+```
+
+Tillgängliga typer är: `info`, `warning`, `error`, och `success`.
+
+## Sammanfattning
+
+Det är allt! Du är nu en mästare på att skriva guider. Kom bara ihåg, tro inte att du behöver vara perfekt med din engelska, skriv guiden på vilket sätt du kommer att förklara ämnet för någon, och tveka inte att be om feedback eller hjälp om du behöver det.
+
+Gott skrivande!

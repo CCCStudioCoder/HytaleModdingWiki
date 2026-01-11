@@ -1,0 +1,39 @@
+---
+title: PR Riktlinjer
+description: Riktlinjer som granskare och bidragsgivare bör följa när de skickar in och granskar pull-requests.
+---
+
+# Riktlinjer för Pull Request
+
+För att säkerställa en smidig och effektiv granskningsprocess så borde både bidragsgivare och granskare följa följande riktlinjer när de skickar in och granskar pull requests (PRs)
+
+## För bidragsgivare
+
+1. **Beskrivande rubriker och beskrivningar**
+   - Använd tydliga och koncisa titlar som sammanfattar ändringarna.
+   - Ge detaljerade beskrivningar av vad PR gör, varför förändringarna är nödvändiga, och alla relevanta sammanhang.
+2. **Länk till problem**
+   - I din PR-titel lägger du till `GH-ISSUE-NUMBER` för att länka PR till det relevanta problemet. Detta krävs för alla PRs.
+3. **Små, fokuserade ändringar**
+   - Sikta att hålla PRs små och fokuserade på en enda fråga eller funktion. Detta gör det enklare för granskare att förstå och ge feedback.
+4. **Kodkvalitet**
+   - Se till att din kod följer projektets kodningsstandarder och bästa praxis.
+   - Inkludera kommentarer där det behövs för att förklara komplex logik.
+5. **Testning**
+   - Testa dina ändringar genomförligt innan du skickar in PR.
+   - Om tillämpligt, inkludera enhetstester eller integrationstester för att verifiera dina ändringar.
+6. **Dokumentation**
+   - Uppdatera eller lägg till dokumentation efter behov för att återspegla dina ändringar.
+7. **Commit Meddelanden**
+   - Använda klara och beskrivande commit meddelanden som följer formatet [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
+8. **Kontrollera konflikter**
+   - Innan du skickar in din PR, se till att din gren är uppdaterad med basgrenen för att minimera sammanslagningskonflikter.
+
+## För granskare
+
+- Du är tänkt att granska PRs grundligt, och begära ändringar om det behövs.
+- Ge konstruktiv feedback och förslag till förbättringar.
+- Verifiera att ändringarna möter projektets kodningsstandard och bästa praxis.
+- Distribuera PR med hjälp av dokploy integration för att säkerställa förändringarna funkar som förväntat.
+- Se till att dokumentationen uppdateras vid behov.
+- Godkänn PR endast när du är nöjd med ändringarna och alla kontroller har passerat.

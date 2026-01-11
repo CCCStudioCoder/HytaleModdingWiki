@@ -1,61 +1,61 @@
 ---
-title: Data Assets
-description: Information about data assets in Hytale and how they drive gameplay behavior and content creation.
+title: Zasoby danych
+description: Informacje o zasobach danych w Hytale i o tym, jak wpływają one na mechanikę rozgrywki oraz tworzenie treści.
 ---
 
-# Data Assets
+# Zasoby danych
 
-Data Assets are JSON files which drive gameplay behavior and core content in Hytale. They provide a powerful, data-driven approach to creating and modifying game elements without needing to write code.
+Zasoby danych to pliki JSON, które napędzają zachowanie rozgrywki i podstawową zawartość w Hytale. Zapewniają one potężne, oparte na danych podejście do tworzenia i modyfikowania elementów gry bez konieczności pisania kodu.
 
-## What Are Data Assets?
+## Czym są zasoby danych?
 
-Data Assets allow you to create or modify fundamental game elements through JSON configuration files:
+Zasoby danych pozwalają na tworzenie lub modyfikowanie fundamentalnych elementów gry poprzez pliki konfiguracyjne JSON:
 
-* **Blocks**: Define new block types and their properties
-* **Items**: Create custom items with unique behaviors
-* **NPCs**: Configure non-player characters and their AI
-* **World generation**: Control how the world is generated
-* **Loot tables**: Define what items drop from various sources
+* **Bloki**: Definiowanie nowych typów bloków i ich właściwości.
+* **Przedmioty**: Tworzenie niestandardowych przedmiotów z unikalnymi zachowaniami.
+* **NPC**: Konfiguracja postaci niezależnych oraz ich sztucznej inteligencji (AI).
+* **Generowanie świata**: Kontrola nad sposobem tworzenia i kształtowania świata.
+* **Tabele łupów**: Określanie, jakie przedmioty wypadają z różnych źródeł.
 
-## Comparison to Minecraft
+## Porównanie do Minecrafta
 
-Data Assets are analogous to Minecraft's data pack JSON files, but with significantly broader scope. While Minecraft's data packs are somewhat limited, Hytale's data-driven architecture means that core game elements like blocks, items, and NPCs can all be modified through JSON files.
+Zasoby danych są analogiczne do plików JSON w paczkach danych Minecrafta, ale mają znacznie szerszy zakres działania. Podczas gdy paczki danych w Minecrafcie są w pewnym stopniu ograniczone, architektura Hytale oparta na danych oznacza, że kluczowe elementy gry – takie jak bloki, przedmioty i NPC – mogą być w całości modyfikowane za pomocą plików JSON.
 
-This expanded data-driven approach gives modders much more power to customize the game without needing to dive into complex programming.
+To rozszerzone podejście daje moderom znacznie większą moc personalizacji gry bez konieczności zagłębiania się w skomplikowane programowanie.
 
-## Development Tools
+## Narzędzia programistyczne
 
-Recognizing that JSON editing can be tedious and error-prone when done by hand, Hytale plans to provide multiple tools to make working with Data Assets more accessible:
+Mając na uwadze, że ręczna edycja plików JSON może być żmudna i podatna na błędy, twórcy Hytale planują udostępnić zestaw narzędzi, które uczynią pracę z Zasobami danych bardziej przystępną:
 
-### Node Editor
+### Edytor węzłów
 
-Hytale is developing a "Node Editor" to make Data Asset management more user-friendly:
+Hytale rozwija „Edytor węzłów”, aby zarządzanie zasobami danych było bardziej przyjazne dla użytkownika:
 
-* **Visual interface**: Provides a graphical way to work with data relationships
-* **Customization focus**: Particularly helpful for customizing NPCs, interactions, and world generation
-* **Integrated workflow**: Works directly within the Hytale Asset Editor for a unified creator suite
-* **Accessibility**: Makes complex data relationships easier to understand and modify
+* **Interfejs wizualny**: Oferuje graficzny sposób pracy z relacjami między danymi.
+* **Nacisk na personalizację**: Szczególnie pomocny przy konfigurowaniu NPC, interakcji oraz generowaniu świata.
+* **Zintegrowany proces pracy**: Działa bezpośrednio wewnątrz Hytale Asset Editor, tworząc spójne środowisko dla twórców.
+* **Przystępność**: Sprawia, że złożone powiązania między danymi są łatwiejsze do zrozumienia i modyfikacji.
 
-### Additional Tools
+### Dodatkowe narzędzia
 
-Beyond the Node Editor, Hytale plans to support:
+Oprócz Edytora węzłów, Hytale planuje wspierać:
 
-* **Visual JSON generators**: Graphical interfaces for creating JSON without writing syntax
-* **Form-based editors**: Structured forms that generate the appropriate JSON automatically
-* **Multiple workflow options**: Different tools for different comfort levels and use cases
+* **Wizualne generatory JSON**: Interfejsy graficzne pozwalające na tworzenie plików JSON bez konieczności ręcznego pisania składni.
+* **Edytory oparte na formularzach**: Ustrukturyzowane formularze, które automatycznie generują odpowiedni kod JSON.
+* **Wiele opcji przepływu pracy**: Różnorodne narzędzia dostosowane do różnych poziomów zaawansowania i potrzeb użytkowników.
 
-## Power and Simplicity
+## Moc i prostota
 
-The effectiveness of Data Assets is demonstrated by their simplicity. For example, making raptors rideable in Hytale reportedly requires only 4 lines of JSON configuration - showcasing how powerful yet accessible the system is designed to be.
+Skuteczność Zasobów danych najlepiej obrazuje ich prostota. Przykładowo, sprawienie, by raptory w Hytale nadawały się do ujeżdżania, wymaga podobno zaledwie 4 linii konfiguracji JSON – co pokazuje, jak potężny, a zarazem przystępny ma być ten system.
 
-This balance between power and accessibility is central to Hytale's modding philosophy: providing professional-grade tools that don't require programming expertise to use effectively.
+Ten balans między możliwościami a łatwością obsługi jest kluczowy dla filozofii modowania w Hytale: dostarczanie narzędzi profesjonalnej klasy, które nie wymagają wiedzy programistycznej do efektywnego użytkowania.
 
-## Integration with Other Systems
+## Integracja z innymi systemami
 
-Data Assets work seamlessly with Hytale's other development approaches:
+Zasoby danych płynnie współpracują z pozostałymi metodami tworzenia zawartości w Hytale:
 
-* **Visual Scripting**: Can reference and manipulate data defined in Data Assets
-* **Java plugins**: Can read from and modify Data Assets for more complex behaviors
-* **Asset Editor**: Provides a unified interface for managing both visual assets and their data configurations
+* **Skryptowanie wizualne**: Może odwoływać się do danych zdefiniowanych w Zasobach danych i nimi manipulować.
+* **Wtyczki Java**: Mogą odczytywać i modyfikować Zasoby danych w celu uzyskania bardziej złożonych zachowań.
+* **Asset Editor**: Zapewnia ujednolicony interfejs do zarządzania zarówno elementami wizualnymi, jak i ich konfiguracją techniczną.
 
-This integration ensures that Data Assets aren't isolated configuration files, but rather a core part of Hytale's comprehensive development environment.
+Taka integracja gwarantuje, że Zasoby danych nie są odizolowanymi plikami konfiguracyjnymi, lecz kluczową częścią kompleksowego środowiska deweloperskiego Hytale.
