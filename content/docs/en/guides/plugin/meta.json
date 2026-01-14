@@ -2,6 +2,7 @@
     "title": "Server Plugins",
     "pages": [
         "setting-up-env.mdx",
+        "browsing-serverjar.mdx",
         "creating-commands.mdx",
         "creating-events.mdx",
         "chat-formatting.mdx",
