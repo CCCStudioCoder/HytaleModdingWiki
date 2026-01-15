@@ -61,7 +61,24 @@ You can now try the command `mvn -version` to verify Maven is installed correctl
 
 ## Setting Up Your Workspace
 
-### 1. Add HytaleServer.jar Dependency
+### 1. Clone the Plugin Template
+
+Instead of creating an empty directory, we'll use the official Hytale plugin template:
+
+```bash
+# Clone the template repository
+git clone https://github.com/HytaleModding/plugin-template.git MyFirstMod
+cd MyFirstMod
+```
+
+### 2. Open in IntelliJ IDEA
+
+1. Open IntelliJ IDEA
+2. Click "Open" and navigate to your `MyFirstMod` directory
+3. IntelliJ will automatically detect it as a Maven project
+4. Wait for the project to index and dependencies to download
+
+### 3. Add HytaleServer.jar Dependency
 
 Before you can start modding, you need to add the HytaleServer.jar file as a dependency:
 
@@ -73,21 +90,19 @@ Before you can start modding, you need to add the HytaleServer.jar file as a dep
    - Click on the **+ icon**
    - Select the **HytaleServer.jar** you downloaded
 
-### 2. Clone the Plugin Template
+### 4. Add the HytaleServer to your Artifacts
 
-Instead of creating an empty directory, we'll use the official Hytale plugin template:
+<Callout type="warning">
+This is a temporary workaround until Hypixel provides an official Maven repository for HytaleServer.jar
+</Callout>
+
+Run this command in your console
 
 ```bash
-# Clone the template repository
-git clone https://github.com/HytaleModding/plugin-template.git MyFirstMod
-cd MyFirstMod
+mvn install:install-file -Dfile=[ROUTE TO HytaleServer.jar] -DgroupId=com.hypixel.hytale -DartifactId=HytaleServer-parent -Dversion=1.0-SNAPSHOT -Dpackaging=jar
 ```
-### 3. Open in IntelliJ IDEA
 
-1. Open IntelliJ IDEA
-2. Click "Open" and navigate to your `MyFirstMod` directory
-3. IntelliJ will automatically detect it as a Maven project
-4. Wait for the project to index and dependencies to download
+Replace `[ROUTE TO HytaleServer.jar]` with the actual path to the `HytaleServer.jar` file on your system.
 
 ## Next Steps
 
@@ -97,8 +112,8 @@ Now that you have your development environment set up with the plugin template:
 2. **Explore the code structure** - Familiarize yourself with the template's organization
 3. **Start modding** - Begin writing your first Hytale plugin!
 
-The plugin template includes:
-- Pre-configured Gradle build system
-- Example plugin structure
-- Essential dependencies
-- Development tools configuration
+Learn how to:
+   - [Create Commands](./creating-commands)
+   - [Create Events](./creating-events)
+
+and more! Explore the documentation to learn about all available features and best practices.
