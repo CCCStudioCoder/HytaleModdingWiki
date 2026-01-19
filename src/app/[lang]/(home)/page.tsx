@@ -62,7 +62,7 @@ const showcaseItems: ShowcaseItem[] = [
   },
   {
     title: "[WIP] Hylamity: Wulfrum Prosthesis",
-    author: "by alder_",
+    author: "by slader._.",
     image: WulfrumProsthesis,
     link: "https://discord.gg/f2fMKYnRqR",
     type: "art",
@@ -83,14 +83,14 @@ const showcaseItems: ShowcaseItem[] = [
   },
   {
     title: "[WIP] Hylamity: Wulfrum Armor",
-    author: "by alder_",
+    author: "by slader._.",
     image: WulfrumArmor,
     link: "https://discord.gg/f2fMKYnRqR",
     type: "art",
   },
   {
     title: "[WIP] Hylamity: Wulfrum Triangle",
-    author: "by alder_",
+    author: "by slader._.",
     image: WulfrumTriangle,
     link: "https://discord.gg/f2fMKYnRqR",
     type: "art",
