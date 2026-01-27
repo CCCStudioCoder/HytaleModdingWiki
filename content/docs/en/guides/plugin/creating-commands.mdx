@@ -27,13 +27,13 @@ You can see information on the following topics:
 
 ## Command Types
 ### The `AbstractAsyncCommand` Class
-The most basic command is an `AbstractAsyncCommand`. It has very minimal data available to access and interact with. All commands require the user to pass data to the `BaseCommand` constructor using `super`. You will amost always be passing `super(<Command String>, <Command Description>)` unless you are creating [Command Variants](#command-variants)
+The most basic command is an `AbstractAsyncCommand`. It has very minimal data available to access and interact with. All commands require the user to pass data to the `BaseCommand` constructor using `super`. You will almost always be passing `super(<Command String>, <Command Description>)` unless you are creating [Command Variants](#command-variants)
 
 <Callout type="warning">
-`AbstractAsyncCommand` runs on its own background thread. This means its execute is not tied to any world instance and because of this it can not edit any **Stores** or **Refs** without getting the desired world first. To access this data any of the other command types would be prefered and are likely what you will want to use instead.
+`AbstractAsyncCommand` runs on its own background thread. This means its execute is not tied to any world instance and because of this it can not edit any **Stores** or **Refs** without getting the desired world first. To access this data any of the other command types would be preferred and are likely what you will want to use instead.
 </Callout>
 
-The main purpose for a command like this would be for something that can happen everywhere and is not tied to a specific world. For example a `serverRules` command to tell the user thats running the command in chat what are the servers rules are nomatter what world they are in.
+The main purpose for a command like this would be for something that can happen everywhere and is not tied to a specific world. For example a `serverRules` command to tell the user thats running the command in chat what the servers rules are nomatter what world they are in.
 
 ```java
 // Command that can be run that lists the server rules in chat to the player
@@ -339,7 +339,7 @@ The following shows an example of a layout and rough code outline on how to set 
           |--restart
 ```
 ```java
-public class RulesCommand excends AbstractPlayerCommand {
+public class RulesCommand extends AbstractPlayerCommand {
     // See Example above for making commands
     // ...
 }
