@@ -1,6 +1,11 @@
 ---
 title: CheckBoxContainer
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # CheckBoxContainer
 

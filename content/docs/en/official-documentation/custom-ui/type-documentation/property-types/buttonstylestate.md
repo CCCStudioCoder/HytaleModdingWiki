@@ -1,6 +1,11 @@
 ---
 title: ButtonStyleState
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # ButtonStyleState
 

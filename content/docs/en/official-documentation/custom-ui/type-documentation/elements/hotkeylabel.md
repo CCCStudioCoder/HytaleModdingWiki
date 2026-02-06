@@ -1,6 +1,11 @@
 ---
 title: HotkeyLabel
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # HotkeyLabel
 

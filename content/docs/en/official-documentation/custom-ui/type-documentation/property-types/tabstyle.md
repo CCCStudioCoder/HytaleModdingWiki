@@ -1,6 +1,11 @@
 ---
 title: TabStyle
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # TabStyle
 

@@ -1,6 +1,11 @@
 ---
 title: ReorderableListGrip
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # ReorderableListGrip
 

@@ -1,6 +1,11 @@
 ---
 title: Tab
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # Tab
 

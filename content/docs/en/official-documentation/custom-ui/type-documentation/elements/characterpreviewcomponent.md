@@ -1,6 +1,11 @@
 ---
 title: CharacterPreviewComponent
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # CharacterPreviewComponent
 

@@ -1,6 +1,11 @@
 ---
 title: ColorPicker
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # ColorPicker
 

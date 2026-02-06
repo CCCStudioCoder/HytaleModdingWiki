@@ -1,6 +1,11 @@
 ---
 title: DropdownEntry
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # DropdownEntry
 

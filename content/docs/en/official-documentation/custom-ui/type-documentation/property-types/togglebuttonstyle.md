@@ -1,6 +1,11 @@
 ---
 title: ToggleButtonStyle
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # ToggleButtonStyle
 

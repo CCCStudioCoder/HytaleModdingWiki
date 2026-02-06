@@ -1,6 +1,11 @@
 ---
 title: NumberField
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # NumberField
 

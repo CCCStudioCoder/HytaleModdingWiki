@@ -1,6 +1,11 @@
 ---
 title: Slider
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # Slider
 

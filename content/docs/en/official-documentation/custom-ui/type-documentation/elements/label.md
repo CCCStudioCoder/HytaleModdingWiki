@@ -1,6 +1,11 @@
 ---
 title: Label
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # Label
 

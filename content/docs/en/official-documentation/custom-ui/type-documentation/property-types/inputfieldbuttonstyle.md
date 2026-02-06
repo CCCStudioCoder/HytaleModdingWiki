@@ -1,6 +1,11 @@
 ---
 title: InputFieldButtonStyle
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # InputFieldButtonStyle
 

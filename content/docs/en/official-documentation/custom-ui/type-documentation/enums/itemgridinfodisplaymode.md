@@ -1,6 +1,11 @@
 ---
 title: ItemGridInfoDisplayMode
+authors:
+  - name: "Hypixel Studios Canada Inc."
+    url: "https://hytale.com"
 ---
+<OfficialDocumentationNotice />
+
 
 # ItemGridInfoDisplayMode
 
