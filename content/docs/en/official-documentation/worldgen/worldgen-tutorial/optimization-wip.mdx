@@ -61,7 +61,7 @@ The time it takes each stage to complete. Stages run sequentially, one after the
   * The larger the output size, the more expensive this will be.
   * The output size metric is listed in the Context Dependency part of the report.
   * The output size is determined by all the stages with a number greater than this one. For example, Stage 2's output size is determined by Stages 3, 4, 5, 6, etc.
-* The cost of the content itself. In other words, how expensive is the content it is trying to generate? Optimizing its assets will decrease this metric. Here’s what content assets affect each stage’s performance:
+* The cost of the content itself. In other words, how expensive is the content it is trying to generate? Optimizing its assets will decrease this metric. Here's what content assets affect each stage's performance:
   * BiomeStage
     * The World Structure's Biome map Density. This is generated in 2D so it's relatively cheap, but it can become significant with larger output sizes.
   * BiomeDistanceStage
@@ -103,44 +103,49 @@ Important tips when interpreting the report:
 
 **Focus Expensive Density by Leveraging Mix**
 
-{% columns %}
-{% column width="66.66666666666666%" %}
-Density is calculated for every block in the world. You can reduce the cost of the expensive parts of your Density configuration by limiting it to the specific regions that require it. You can combine doing this vertically and horizontally to isolate an expensive field to the smallest region possible.
-
-Some example applications:
-
-* Above your terrain's maximum height. This area is entirely empty and doesn't need to calculate your terrain's Density.
-* Omit generating your surface Density field underground.
-* Expensive terrain features that are local to an area can be masked out.
-{% endcolumn %}
-
-{% column width="33.33333333333334%" %}
-<figure><img src="../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
-{% endcolumn %}
-{% endcolumns %}
+<table>
+  <tbody>
+    <tr>
+      <td style={{width: '66.67%', verticalAlign: 'top'}}>
+        <p>Density is calculated for every block in the world. You can reduce the cost of the expensive parts of your Density configuration by limiting it to the specific regions that require it. You can combine doing this vertically and horizontally to isolate an expensive field to the smallest region possible.</p>
+        <p>Some example applications:</p>
+        <ul>
+          <li>Above your terrain's maximum height. This area is entirely empty and doesn't need to calculate your terrain's Density.</li>
+          <li>Omit generating your surface Density field underground.</li>
+          <li>Expensive terrain features that are local to an area can be masked out.</li>
+        </ul>
+      </td>
+      <td style={{width: '33.33%', verticalAlign: 'top'}}>
+        <img src="/assets/official-documentation/worldgen/optimization/1.png" alt="Density optimization example" />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 **Reduce Density Samples**
 
-{% columns %}
-{% column width="66.66666666666666%" %}
-Calculating density fields for every coordinate can be wasteful when it's not required. We recommend using YSampled to reduce the number of vertical calculations.
+<table>
+  <tbody>
+    <tr>
+      <td style={{width: '66.67%', verticalAlign: 'top'}}>
+        <p>Calculating density fields for every coordinate can be wasteful when it's not required. We recommend using YSampled to reduce the number of vertical calculations.</p>
+        <p>This works well for more expensive Density fields where a higher sample resolution isn't visually apparent. However, for more detailed fields, the sampling distance may need to be reduced.</p>
+        <p>You can also use a hybrid approach where you mix between the sampled and non-sampled versions of a field in different areas, based on how much detail you need, by using a Mix. Some example applications:</p>
+        <ul>
+          <li>If you need higher precision around the water level, you could use the non-sampled field around shores and the sampled field everywhere else.</li>
+          <li>If you need a field to be precise around a POI, but it can be less precise farther away, this could be achieved with a PositionsCellNoise to control the Mix.</li>
+        </ul>
+      </td>
+      <td style={{width: '33.33%', verticalAlign: 'top'}}>
+        <img src="/assets/official-documentation/worldgen/optimization/2.png" alt="YSampled optimization example" />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-This works well for more expensive Density fields where a higher sample resolution isn't visually apparent. However, for more detailed fields, the sampling distance may need to be reduced.
-
-You can also use a hybrid approach where you mix between the sampled and non-sampled versions of a field in different areas, based on how much detail you need, by using a Mix. Some example applications:
-
-* If you need higher precision around the water level, you could use the non-sampled field around shores and the sampled field everywhere else.
-* If you need a field to be precise around a POI, but it can be less precise farther away, this could be achieved with a PositionsCellNoise to control the Mix.
-{% endcolumn %}
-
-{% column width="33.33333333333334%" %}
-<figure><img src="../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
-{% endcolumn %}
-{% endcolumns %}
-
-{% hint style="info" %}
+<Callout>
 We recommend a SampleDistance of 8 for the biggest performance improvement, and a SampleDistance of 2 in areas that require higher levels of detail. Feel free to experiment and measure different values to find what works best for your content.
-{% endhint %}
+</Callout>
 
 **Caching**
 
@@ -155,34 +160,40 @@ Where to use:
 
 ### Materials
 
-Like Density fields, Material operations are run for every coordinate in the world. This is particularly expensive when using Density in your Material Provider nodes. To reduce the performance impact of those Material Providers, we can limit the region they’re applied to. Do this by putting expensive nodes as far to the right as possible in the node tree, and adding nodes as far on the left side of the node tree that limit the area.
+Like Density fields, Material operations are run for every coordinate in the world. This is particularly expensive when using Density in your Material Provider nodes. To reduce the performance impact of those Material Providers, we can limit the region they're applied to. Do this by putting expensive nodes as far to the right as possible in the node tree, and adding nodes as far on the left side of the node tree that limit the area.
 
-{% columns %}
-{% column width="58.333333333333336%" %}
-* Simple Horizontal Material Provider reduces the height range for its children.
-{% endcolumn %}
+<table>
+  <tbody>
+    <tr>
+      <td style={{width: '58.33%', verticalAlign: 'top'}}>
+        <p>Simple Horizontal Material Provider reduces the height range for its children.</p>
+      </td>
+      <td style={{width: '41.67%', verticalAlign: 'top'}}>
+        <img src="/assets/official-documentation/worldgen/optimization/3.png" alt="Simple Horizontal Material Provider" />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-{% column width="41.666666666666664%" %}
-<figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
-{% endcolumn %}
-{% endcolumns %}
-
-{% columns %}
-{% column width="58.333333333333336%" %}
-* Space and Depth Material Provider reduces the depth range for its children.
-{% endcolumn %}
-
-{% column width="41.666666666666664%" %}
-<figure><img src="../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
-{% endcolumn %}
-{% endcolumns %}
+<table>
+  <tbody>
+    <tr>
+      <td style={{width: '58.33%', verticalAlign: 'top'}}>
+        <p>Space and Depth Material Provider reduces the depth range for its children.</p>
+      </td>
+      <td style={{width: '41.67%', verticalAlign: 'top'}}>
+        <img src="/assets/official-documentation/worldgen/optimization/4.png" alt="Space and Depth Material Provider" />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 * You can also use the FieldFunction Material Provider with a **cheap Density mask** to limit an expensive Material Provider's effect to a specific area of the world.
 * Use the Terrain Density node when you want to reference the terrain's Density field for calculating a Gradient within your Material Providers. The Terrain Density node reuses the existing terrain Density buffers, which makes it much cheaper than importing the root of your terrain's Density.
 
 ### Props
 
-Runtimes let Props share context with each other. This increases the context dependency for each runtime. Each Runtime after the first increases the performance impact on all lower Runtime stages and the non-Prop stages. The horizontal size of the largest Prop in a Runtime largely determines that Runtime’s performance. A Prop’s total size is the sum of its Scanner, Pattern, and Content. Reducing the horizontal size of any of those three will reduce the total size.
+Runtimes let Props share context with each other. This increases the context dependency for each runtime. Each Runtime after the first increases the performance impact on all lower Runtime stages and the non-Prop stages. The horizontal size of the largest Prop in a Runtime largely determines that Runtime's performance. A Prop's total size is the sum of its Scanner, Pattern, and Content. Reducing the horizontal size of any of those three will reduce the total size.
 
 Some techniques to improve performance:
 
@@ -193,11 +204,11 @@ Some techniques to improve performance:
 * Where possible, reduce Props' horizontal size by breaking large Props up into smaller modular pieces that are assembled at the Prop Distribution level.
 * Reduce the need for large complex Pattern and Scanner setups by preparing the terrain in proximity to an important Prop.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<img src="/assets/official-documentation/worldgen/optimization/5.png" alt="Props optimization example" />
 
-{% hint style="info" %}
+<Callout>
 The priority for Props within a Runtime is currently broken, meaning that props are being placed in non-deterministic order within each Runtime. This will be fixed in a future update.
-{% endhint %}
+</Callout>
 
 ## Useful Optimization Steps
 
@@ -210,17 +221,19 @@ Some steps to help you optimize your world-gen assets, roughly ordered from easi
   * Try using 2D warping instead of 3D where possible.
 * Use Mix at the root of your Biomes to replace the area above the highest point of your terrain with a Constant Density of -1. Do the same underground, but with a Constant Density of 1.
 
-{% columns %}
-{% column width="33.33333333333333%" %}
-<figure><img src="../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
-{% endcolumn %}
-
-{% column width="66.66666666666667%" %}
-To reduce the number of complex calculations above and below the terrain, we recommend using a Mixer node, which in this case will mix out a Density field and replace it with constant values. Mixers typically have three inputs: index 0, index 1, and the controller.
-
-The controller decides where each index input appears, using density values between 0 and 1 to match the indexes.
-{% endcolumn %}
-{% endcolumns %}
+<table>
+  <tbody>
+    <tr>
+      <td style={{width: '33.33%', verticalAlign: 'top'}}>
+        <img src="/assets/official-documentation/worldgen/optimization/6.png" alt="Mixer node optimization" />
+      </td>
+      <td style={{width: '66.67%', verticalAlign: 'top'}}>
+        <p>To reduce the number of complex calculations above and below the terrain, we recommend using a Mixer node, which in this case will mix out a Density field and replace it with constant values. Mixers typically have three inputs: index 0, index 1, and the controller.</p>
+        <p>The controller decides where each index input appears, using density values between 0 and 1 to match the indexes.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 * Use Mix (instead of Sum, Min, Max, etc.) where possible inside your Biome when you want to transition between different Density effects. Mix disables the fields where they don't need to be calculated, while other approaches don't.
 * Try to use YSampled where possible.
