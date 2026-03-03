@@ -1,6 +1,6 @@
 ---
-title: Creating custom blocks
-description: Learn how to create custom blocks for your Hytale mod.
+title: Création de block
+description: Apprenez comment créer des blocs personnalisés pour votre plugin
 authors:
   - name: Flo_12344
     url: https://flotterstudio.com
@@ -9,11 +9,12 @@ authors:
 import { File, Folder, Files } from 'fumadocs-ui/components/files';
 
 Creating custom blocks requires enabling asset packs and organizing your files properly.
+Créer des blocs personnalisés requiert d'activer les packs d'assets (ce qui consitue les mods créés à partir de l'asset editor), et d'organiser correctement et proprement ses fichiers.
 
-## Setup
+## Préparation
 
-1. Enable asset packs in `manifest.json` by setting `IncludesAssetPack` to `true`
-2. Create the following folder structure:
+1. Activez les asset packs dans `manifest.json` en mettant `IncludesAssetPack` à `true`
+2. La structure de vos fichiers doit ressembler à ceci:
 
 <Files>
   <Folder name="resources" defaultOpen>
@@ -43,16 +44,16 @@ Creating custom blocks requires enabling asset packs and organizing your files p
   </Folder>
 </Files>
 
-3. Add translations in `Server/Languages/en-US/items.lang`:
+3. Ajoutez des traductions dans `Server/Languages/en-US/items.lang`:
 
 ```
-my_new_block.name = My New Block
-my_new_block.description = My Description
+my_new_block.name = Mon bloc
+my_new_block.description = Ma description
 ```
 
-## Basic Cube Block
+## Bloc cubique basique
 
-Create `Server/Item/Items/my_new_block.json`:
+Créez `Server/Item/Items/my_new_block.json`:
 
 ```json
 {
@@ -97,5 +98,6 @@ Create `Server/Item/Items/my_new_block.json`:
   ]
 }
 ```
+Ce genre de fichier peut être créé à partir de l'asset editor des creative tools vanilla.
 
-Ensure all referenced files exist in their respective folders, and the paths are correct.
+Soyez sûr que tous les fichiers référencés existent dans leurs dossiers respectifs, et que leurs chemins soient corrects.

@@ -59,7 +59,7 @@ L'interface du formatteur est la suivante:
 ### Features
 
 - **Dégradés:** `<gradient:red:blue>Hello</gradient>` ou multi-couleur `<gradient:gold:red:black>...`
-- **Couleurs headéciimales:** `<color:#FF55FF>Couleur personnalisée</color>` ou `<color:red>Couleurs simples (déjà nommées)</color>`
+- **Couleurs hexadécimales:** `<color:#FF55FF>Couleur personnalisée</color>` ou `<color:red>Couleurs simples (déjà nommées)</color>`
 - **Standard Styles:** `<b>Bold</b>`, `<i>Italic</i>`, `<u>Underline</u>`, `<mono>Monospace</mono>`
 - **Liens externes clickables:** `<link:https://google.com>Click moi!</link>`
 - **Styles imbriqués:** Tags can be nested indefinitely
@@ -106,7 +106,7 @@ public class ChatFormatter {
 
 ### Installation
 
-Links:
+Liens:
 
 <a href="https://github.com/Zoltus/TinyMessage/" target="_blank" rel="noopener noreferrer">
   Repository Github
@@ -134,7 +134,7 @@ Téléchargez la dernière version de TinyMessage.jar depuis la page GitHub, et 
 },
 ```
 
-### For Gradle
+### Pour Gradle
 
 ```kotlin
 repositories {
@@ -146,7 +146,7 @@ dependencies {
 }
 ```
 
-### For Maven
+### Pour Maven
 
 ```xml
 <repositories>
@@ -166,37 +166,37 @@ dependencies {
 
 ---
 
-### API Reference
+### Reference des
 
 #### `TinyMsg.parse(String text)`
 
-Parses a string with TinyMsg tags and returns a `Message` object.
+Analyse une string avec des tags TinyMsg et renvoie un `Message`.
 
-**Parameters:**
+**Paramètres:**
 
-- `text` - The string to parse
+- `text` - La string à analyser
 
-**Returns:**
+**Sorties:**
 
-- `Message` - A Hytale `Message` object ready to be sent to players
+- `Message` - Un `Message` Hytale prêt à être envoyéà des joueurs.
 
-### Supported Tags
+### Tags supportés
 
-| Tag                | Aliases               | Example                                 | Description                    |
-| ------------------ | --------------------- | --------------------------------------- | ------------------------------ |
-| `<color:X>`        | `<c:X>`, `<colour:X>` | `<color:red>text</color>`               | Sets text color (named or hex) |
-| `<gradient:X:Y:Z>` | `<grnt:X:Y:Z>`        | `<gradient:red:blue>text</gradient>`    | Creates a color gradient       |
-| `<bold>`           | `<b>`                 | `<b>text</b>`                           | Makes text bold                |
-| `<italic>`         | `<i>`, `<em>`         | `<i>text</i>`                           | Makes text italic              |
-| `<underline>`      | `<u>`                 | `<u>text</u>`                           | Underlines text                |
-| `<monospace>`      | `<mono>`              | `<mono>text</mono>`                     | Uses monospace font            |
-| `<link:URL>`       | `<url:link>`          | `<link:https://google.com>click</link>` | Creates clickable link         |
-| `<reset>`          | `<r>`                 | `<b>bold<reset>normal`                  | Resets all formatting          |
+| Tag                | Alias                 | Exemple                                 | Description                                            |
+| ------------------ | --------------------- | --------------------------------------- | -------------------------------------------------------|
+| `<color:X>`        | `<c:X>`, `<colour:X>` | `<color:red>text</color>`               | Change la couleur du texte (hexadécimales on prénommé) |
+| `<gradient:X:Y:Z>` | `<grnt:X:Y:Z>`        | `<gradient:red:blue>text</gradient>`    | Créer un dégradé de couleurs                           |
+| `<bold>`           | `<b>`                 | `<b>text</b>`                           | Metsle texte en gras                                   |
+| `<italic>`         | `<i>`, `<em>`         | `<i>text</i>`                           | Mets le texte en iitalique                             |
+| `<underline>`      | `<u>`                 | `<u>text</u>`                           | Souligne le texte                                      |
+| `<monospace>`      | `<mono>`              | `<mono>text</mono>`                     | Utilise la police monospace                            |
+| `<link:URL>`       | `<url:link>`          | `<link:https://google.com>click</link>` | Créer un lien clickable                                |
+| `<reset>`          | `<r>`                 | `<b>bold<reset>normal`                  | Réinitialise  tous les styles                          |
 
-### Named Colors
+### NCouelurs prénommées
 
-`black`, `dark_blue`, `dark_green`, `dark_aqua`, `dark_red`, `dark_purple`, `gold`, `gray`, `dark_gray`, `blue`, `green`, `aqua`, `red`, `light_purple`, `yellow`, `white`
+`black`: noir, `dark_blue`: bleu foncé, `dark_green`: vert foncé, `dark_aqua`: bleu marine, `dark_red`: rouge bordeaux, `dark_purple`: mauve foncé, `gold`: doré, `gray`: gris , `dark_gray`: gris foncé, `blue`: bleu, `green`: vert, `aqua`: cyan, `red`: rouge, `light_purple`: violet clair, `yellow`: jaune, `white`: blanc.
 
 ### License
 
-TinyMsg is available under the MIT License - feel free to use in your projects!
+TinyMsg est disponible sous la license MIT; vous pouvez donc l'utiliser librement!
